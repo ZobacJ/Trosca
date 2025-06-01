@@ -1,0 +1,476 @@
+; This EDS file was created by the CANopen Device Monitor 3.0.1
+; (c) 2005 port GmbH Halle/Saale Germany
+; http://www.port.de, mailto:service@port.de
+
+[FileInfo]
+; Please replace the following  values
+; with your real values.
+FileName=default01.eds
+FileVersion=1
+FileRevision=0
+EDSVersion=4.0
+Description=scanned by CANopen Device Monitor
+CreationTime=05:04AM
+CreationDate=07-02-2005
+CreatedBy=CDM
+ModificationTime=05:04AM
+ModificationDate=07-02-2005
+ModifiedBy=CDM
+
+[DeviceInfo]
+ProductName=Generic minimum capability device
+VendorName=0
+VendorNumber=0
+ProductNumber=0
+RevisionNumber=0
+OrderCode=0
+BaudRate_10=0
+BaudRate_20=0
+BaudRate_50=0
+BaudRate_125=1
+BaudRate_250=0
+BaudRate_500=0
+BaudRate_800=0
+BaudRate_1000=0
+DynamicChannelsSupported=0
+GroupMessaging=0
+LSS_Supported=0
+Granularity=0
+SimpleBootUpMaster=0
+SimpleBootUpSlave=0
+NrOfRXPDO=0
+NrOfTXPDO=0
+
+[Comments]
+; Please replace the following values
+; with your real values.
+Lines=0
+
+[DummyUsage]
+Dummy0001=1
+Dummy0002=1
+Dummy0003=1
+Dummy0004=1
+Dummy0005=1
+Dummy0006=1
+Dummy0007=1
+
+[MandatoryObjects]
+SupportedObjects=5
+1=0x1000
+2=0x1001
+3=0x1002
+4=0x1003
+5=0x1018
+
+[1000]
+ParameterName=Device Type
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=0
+DefaultValue=0
+
+[1001]
+ParameterName=Error Register
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+PDOMapping=1
+DefaultValue=0x00
+
+[1002]
+ParameterName=Manufacturer Status Register
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=0
+DefaultValue=0x00000000
+
+[1003]
+SubNumber=5
+ParameterName=Pre-defined Error Field
+ObjectType=0x8
+DataType=0x0007
+
+[1003sub0]
+ParameterName=Number of Errors
+ObjectType=0x7
+DataType=0x0007
+LowLimit=0
+HighLimit=254
+DefaultValue=0x00
+AccessType=rw
+PDOMapping=0
+
+[1003sub1]
+ParameterName=Standard Error Field 01
+ObjectType=0x7
+DataType=0x0007
+DefaultValue=0x00000000
+AccessType=ro
+PDOMapping=0
+
+[1003sub2]
+ParameterName=Standard Error Field 02
+ObjectType=0x7
+DataType=0x0007
+DefaultValue=0x00000000
+AccessType=ro
+PDOMapping=0
+
+[1003sub3]
+ParameterName=Standard Error Field 03
+ObjectType=0x7
+DataType=0x0007
+DefaultValue=0x00000000
+AccessType=ro
+PDOMapping=0
+
+[1003sub4]
+ParameterName=Standard Error Field 04
+ObjectType=0x7
+DataType=0x0007
+DefaultValue=0x00000000
+AccessType=ro
+PDOMapping=0
+
+[1018]
+ParameterName=Identity Object
+ObjectType=0x9
+SubNumber=5
+
+[1018sub0]
+ParameterName=number of entries
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+PDOMapping=0
+DefaultValue=1
+
+[1018sub1]
+ParameterName=Vendor Id
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=0
+DefaultValue=0x00000000
+
+[1018sub2]
+ParameterName=Product code
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=0
+DefaultValue=0x00000000
+
+[1018sub3]
+ParameterName=Revision number
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=0
+DefaultValue=0x00000000
+
+[1018sub4]
+ParameterName=Serial number
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=0
+DefaultValue=0
+
+[OptionalObjects]
+SupportedObjects=6
+1=0x1005
+2=0x1006
+3=0x1007
+4=0x1008
+5=0x1009
+6=0x100a
+
+[1005]
+ParameterName=Cob-ID SYNC message
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+PDOMapping=0
+DefaultValue=0x00000080
+
+[1006]
+ParameterName=SYNC Communication Cycle Period
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+PDOMapping=0
+DefaultValue=0
+
+[1007]
+ParameterName=SYNC Synchronous Window Length
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+PDOMapping=0
+DefaultValue=0
+
+[1008]
+ParameterName=Manufacturer Device Name
+ObjectType=0x7
+DataType=0x0009
+DefaultValue=xxxx
+AccessType=const
+PDOMapping=0
+
+[1009]
+ParameterName=Manufacturer Hardware Version
+ObjectType=0x7
+DataType=0x0009
+DefaultValue=xxxx
+AccessType=const
+PDOMapping=0
+
+[100A]
+ParameterName=Manufacturer Software Version
+ObjectType=0x7
+DataType=0x0009
+DefaultValue=xxxx
+AccessType=const
+PDOMapping=0
+
+[ManufacturerObjects]
+SupportedObjects=26
+1=0x2000
+2=0x2001
+3=0x2002
+4=0x2003
+5=0x2004
+6=0x2005
+7=0x2006
+8=0x2007
+9=0x2008
+10=0x2010
+11=0x2011
+12=0x2012
+13=0x2013
+14=0x2014
+15=0x2015
+16=0x2016
+17=0x2017
+18=0x2018
+19=0x2019
+20=0x201a
+21=0x201b
+22=0x201c
+23=0x201d
+24=0x201e
+25=0x201f
+26=0x2020
+
+[2000]
+ParameterName=CANopen_ID
+ObjectType=0x7
+DataType=0x0003
+AccessType=rw
+PDOMapping=0
+DefaultValue=127
+
+[2001]
+ParameterName=CANopen_Speed
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+PDOMapping=0
+DefaultValue=500000
+
+[2002]
+ParameterName=CF_Zero_Packet //doplnovani na konstantni delku USB frame: 0=ne, 1=ano
+ObjectType=0x7
+DataType=0x0003
+AccessType=rw
+PDOMapping=0
+DefaultValue=0
+
+[2003]
+ParameterName=CF_Packet_Max //maximalni pocet USB paketu (22znaku) v jednom USB frame do PC
+ObjectType=0x7
+DataType=0x0003
+AccessType=rw
+PDOMapping=0
+DefaultValue=0
+
+[2004]
+ParameterName=CF_Packing_Factor //nasobky tajmru D1 (typicky 250us), pro pravidelne odesilani USB frame do PC
+ObjectType=0x7
+DataType=0x0003
+AccessType=rw
+PDOMapping=0
+DefaultValue=0
+
+[2005]
+ParameterName=CF_USBCAN_Regime //rezim odesilani 1=poll,2=cyclic s periodou CF_Packing_Factor*250us
+ObjectType=0x7
+DataType=0x0003
+AccessType=rw
+PDOMapping=0
+DefaultValue=0
+
+[2006]
+ParameterName=CF_USB_Halt_Factor //pocet ticku tajmru D1 kdyz neco nekde zatuhne => po uplynuti dojde k totalnimu Resetu USB obvodu
+ObjectType=0x7
+DataType=0x0003
+AccessType=rw
+PDOMapping=0
+DefaultValue=0
+
+[2007]
+ParameterName=CF_USB_Packet_Max //maximalni pocet paketu odeslanych do PC bez potvrzeni od PC - emergency hodnota
+ObjectType=0x7
+DataType=0x0003
+AccessType=rw
+PDOMapping=0
+DefaultValue=0
+
+[2008]
+ParameterName=CF_Packing_TimerD1 //nastaveni tajmru D1 (2500 = 250us viz manual DSP)
+ObjectType=0x7
+DataType=0x0003
+AccessType=rw
+PDOMapping=0
+DefaultValue=0
+
+[2010]
+ParameterName=CANRFLG //Status registr CAN rx
+ObjectType=0x7
+DataType=0x0006
+AccessType=ro
+PDOMapping=0
+DefaultValue=0x0000
+
+[2011]
+ParameterName=CANTFLG //Status registr CAN rx
+ObjectType=0x7
+DataType=0x0006
+AccessType=ro
+PDOMapping=0
+DefaultValue=0x0000
+
+[2012]
+ParameterName=CAN_PointerU //aktualni pozice pointeru v bufferu pro odesilani CAN dat do PC
+ObjectType=0x7
+DataType=0x0003
+AccessType=ro
+PDOMapping=0
+DefaultValue=0
+
+[2013]
+ParameterName=SCI_PointerU //aktualni pozice pointeru v bufferu pro odesilani SCI dat do PC
+ObjectType=0x7
+DataType=0x0003
+AccessType=ro
+PDOMapping=0
+DefaultValue=0
+
+[2014]
+ParameterName=PEAK_USB_Halt //Maximalni hodnota citace Ct_USB_Halt celkem
+ObjectType=0x7
+DataType=0x0003
+AccessType=rw
+PDOMapping=0
+DefaultValue=0
+
+[2015]
+ParameterName=SCI_Status //Status registr SCI
+ObjectType=0x7
+DataType=0x0006
+AccessType=ro
+PDOMapping=0
+DefaultValue=0x0000
+
+[2016]
+ParameterName=Ct_SCI_Status_Error //pocet chyb v SCI Status registru celkem
+ObjectType=0x7
+DataType=0x0006
+AccessType=rw
+PDOMapping=0
+DefaultValue=0
+
+[2017]
+ParameterName=Ct_SCI_Error //pocet SCI spatne prijatych znacek 4 bajtovych paketu celkem
+ObjectType=0x7
+DataType=0x0006
+AccessType=rw
+PDOMapping=0
+DefaultValue=0
+
+[2018]
+ParameterName=Ct_USB_Frame_Tx //pocet odeslanych celych Frame do PC pres USB
+ObjectType=0x7
+DataType=0x0006
+AccessType=rw
+PDOMapping=0
+DefaultValue=0
+
+[2019]
+ParameterName=PEAK_Ct_Packet //maximalni pocet odeslanych paketu ve Frame celketm
+ObjectType=0x7
+DataType=0x0006
+AccessType=rw
+PDOMapping=0
+DefaultValue=0
+
+[201a]
+ParameterName=PEAK_Ct_PacketPom //maximalni pocet frame odeslanych bez potvrzeni PC
+ObjectType=0x7
+DataType=0x0006
+AccessType=rw
+PDOMapping=0
+DefaultValue=0
+
+[201b]
+ParameterName=CAN_Counter //pocet prijatych paketu na CANu
+ObjectType=0x7
+DataType=0x0006
+AccessType=ro
+PDOMapping=0
+DefaultValue=0
+
+[201c]
+ParameterName=wADC7 teplota AD22100
+ObjectType=0x7
+DataType=0x0006
+AccessType=ro
+PDOMapping=0
+DefaultValue=0
+
+[201d]
+ParameterName=wADC5 napajeci napeti
+ObjectType=0x7
+DataType=0x0006
+AccessType=ro
+PDOMapping=0
+DefaultValue=0
+
+[201e]
+ParameterName=wTemp teplota
+ObjectType=0x7
+DataType=0x0006
+AccessType=ro
+PDOMapping=0
+DefaultValue=0
+
+[201f]
+ParameterName=pocet restartu FTDI obvod
+ObjectType=0x7
+DataType=0x0006
+AccessType=ro
+PDOMapping=0
+DefaultValue=0
+
+[2020]
+ParameterName=pocet odeslanych SYNCu
+ObjectType=0x7
+DataType=0x0006
+AccessType=ro
+PDOMapping=0
+DefaultValue=0
+

@@ -1,0 +1,104 @@
+Tue Jun 27 18:16:09 2006 (.635s): [info]  Thread attach.
+Tue Jun 21 13:10:22 2011 (.020s): [info]  TCP/IP: OpenConnection - connect(..) 10061
+Tue Jun 21 13:10:22 2011 (.083s): [info]  TCP/IP: CANThreadHeartBeat - restart status 5
+Tue Jun 21 13:10:23 2011 (.536s): [info]  TCP/IP: OpenConnection - connect(..) 10061
+Tue Jun 21 13:10:23 2011 (.583s): [info]  TCP/IP: CANThreadHeartBeat - restart status 6
+Tue Jun 21 13:10:25 2011 (.036s): [info]  TCP/IP: OpenConnection - connect(..) 10061
+Tue Jun 21 13:10:25 2011 (.083s): [info]  TCP/IP: CANThreadHeartBeat - restart status 7
+Mon Oct 03 17:55:32 2011 (.062s): [info]  TCP/IP: OpenConnection - connect(..) 10061
+Mon Oct 03 17:55:32 2011 (.162s): [info]  TCP/IP: CANThreadHeartBeat - restart status 229
+Mon Oct 03 17:55:33 2011 (.165s): [info]  TCP/IP: OpenConnection - connect(..) 10061
+Mon Oct 03 17:55:33 2011 (.262s): [info]  TCP/IP: CANThreadHeartBeat - restart status 230
+Mon Oct 03 17:55:34 2011 (.275s): [info]  TCP/IP: OpenConnection - connect(..) 10061
+Mon Oct 03 17:55:34 2011 (.362s): [info]  TCP/IP: CANThreadHeartBeat - restart status 231
+Mon Oct 03 17:55:35 2011 (.375s): [info]  TCP/IP: OpenConnection - connect(..) 10061
+Mon Oct 03 17:55:35 2011 (.462s): [info]  TCP/IP: CANThreadHeartBeat - restart status 232
+Mon Oct 03 17:55:36 2011 (.465s): [info]  TCP/IP: OpenConnection - connect(..) 10061
+Mon Oct 03 17:55:36 2011 (.562s): [info]  TCP/IP: CANThreadHeartBeat - restart status 233
+Mon Oct 03 17:55:37 2011 (.566s): [info]  TCP/IP: OpenConnection - connect(..) 10061
+Mon Oct 03 17:55:37 2011 (.662s): [info]  TCP/IP: CANThreadHeartBeat - restart status 234
+Mon Oct 03 17:55:38 2011 (.663s): [info]  TCP/IP: OpenConnection - connect(..) 10061
+Mon Oct 03 17:55:38 2011 (.762s): [info]  TCP/IP: CANThreadHeartBeat - restart status 235
+Mon Oct 03 17:55:49 2011 (.565s): [info]  TCP/IP: OpenConnection - connect(..) 10061
+Mon Oct 03 17:55:49 2011 (.662s): [info]  TCP/IP: CANThreadHeartBeat - restart status 245
+Mon Oct 03 17:55:50 2011 (.666s): [info]  TCP/IP: OpenConnection - connect(..) 10061
+Mon Oct 03 17:55:50 2011 (.762s): [info]  TCP/IP: CANThreadHeartBeat - restart status 246
+Mon Oct 03 17:55:51 2011 (.776s): [info]  TCP/IP: OpenConnection - connect(..) 10061
+Mon Oct 03 17:55:51 2011 (.862s): [info]  TCP/IP: CANThreadHeartBeat - restart status 247
+Mon Oct 03 17:55:52 2011 (.868s): [info]  TCP/IP: OpenConnection - connect(..) 10061
+Mon Oct 03 17:55:52 2011 (.962s): [info]  TCP/IP: CANThreadHeartBeat - restart status 248
+Mon Oct 03 17:55:53 2011 (.969s): [info]  TCP/IP: OpenConnection - connect(..) 10061
+Mon Oct 03 17:55:54 2011 (.062s): [info]  TCP/IP: CANThreadHeartBeat - restart status 249
+Mon Oct 03 17:55:55 2011 (.066s): [info]  TCP/IP: OpenConnection - connect(..) 10061
+Mon Oct 03 17:55:55 2011 (.162s): [info]  TCP/IP: CANThreadHeartBeat - restart status 250
+Mon Oct 03 17:55:56 2011 (.166s): [info]  TCP/IP: OpenConnection - connect(..) 10061
+Mon Oct 03 17:55:56 2011 (.262s): [info]  TCP/IP: CANThreadHeartBeat - restart status 251
+Mon Oct 03 17:55:57 2011 (.266s): [info]  TCP/IP: OpenConnection - connect(..) 10061
+Mon Oct 03 17:55:57 2011 (.362s): [info]  TCP/IP: CANThreadHeartBeat - restart status 252
+Mon Oct 03 17:55:58 2011 (.366s): [info]  TCP/IP: OpenConnection - connect(..) 10061
+Mon Oct 03 17:55:58 2011 (.462s): [info]  TCP/IP: CANThreadHeartBeat - restart status 253
+Mon Oct 03 17:55:59 2011 (.464s): [info]  TCP/IP: OpenConnection - connect(..) 10061
+Mon Oct 03 17:55:59 2011 (.561s): [info]  TCP/IP: CANThreadHeartBeat - restart status 254
+Mon Oct 03 17:56:00 2011 (.566s): [info]  TCP/IP: OpenConnection - connect(..) 10061
+Mon Oct 03 17:56:00 2011 (.661s): [info]  TCP/IP: CANThreadHeartBeat - restart status 255
+Mon Oct 03 17:56:01 2011 (.666s): [info]  TCP/IP: OpenConnection - connect(..) 10061
+Mon Oct 03 17:56:01 2011 (.761s): [info]  TCP/IP: CANThreadHeartBeat - restart status 256
+Mon Oct 03 17:56:02 2011 (.768s): [info]  TCP/IP: OpenConnection - connect(..) 10061
+Mon Oct 03 17:56:02 2011 (.861s): [info]  TCP/IP: CANThreadHeartBeat - restart status 257
+Mon Oct 03 17:56:03 2011 (.866s): [info]  TCP/IP: OpenConnection - connect(..) 10061
+Mon Oct 03 17:56:03 2011 (.961s): [info]  TCP/IP: CANThreadHeartBeat - restart status 258
+Mon Oct 03 17:56:04 2011 (.966s): [info]  TCP/IP: OpenConnection - connect(..) 10061
+Mon Oct 03 17:56:05 2011 (.061s): [info]  TCP/IP: CANThreadHeartBeat - restart status 259
+Mon Oct 03 17:56:06 2011 (.067s): [info]  TCP/IP: OpenConnection - connect(..) 10061
+Mon Oct 03 17:56:06 2011 (.161s): [info]  TCP/IP: CANThreadHeartBeat - restart status 260
+Mon Oct 03 17:56:07 2011 (.168s): [info]  TCP/IP: OpenConnection - connect(..) 10061
+Mon Oct 03 17:56:07 2011 (.262s): [info]  TCP/IP: CANThreadHeartBeat - restart status 261
+Mon Oct 03 17:56:08 2011 (.268s): [info]  TCP/IP: OpenConnection - connect(..) 10061
+Mon Oct 03 17:56:08 2011 (.362s): [info]  TCP/IP: CANThreadHeartBeat - restart status 262
+Mon Oct 03 17:56:09 2011 (.378s): [info]  TCP/IP: OpenConnection - connect(..) 10061
+Mon Oct 03 17:56:09 2011 (.462s): [info]  TCP/IP: CANThreadHeartBeat - restart status 263
+Mon Oct 03 17:56:10 2011 (.478s): [info]  TCP/IP: OpenConnection - connect(..) 10061
+Mon Oct 03 17:56:10 2011 (.562s): [info]  TCP/IP: CANThreadHeartBeat - restart status 264
+Mon Oct 03 17:56:11 2011 (.568s): [info]  TCP/IP: OpenConnection - connect(..) 10061
+Mon Oct 03 17:56:11 2011 (.662s): [info]  TCP/IP: CANThreadHeartBeat - restart status 265
+Mon Oct 03 17:56:12 2011 (.668s): [info]  TCP/IP: OpenConnection - connect(..) 10061
+Mon Oct 03 17:56:12 2011 (.762s): [info]  TCP/IP: CANThreadHeartBeat - restart status 266
+Mon Oct 03 17:56:13 2011 (.768s): [info]  TCP/IP: OpenConnection - connect(..) 10061
+Mon Oct 03 17:56:13 2011 (.862s): [info]  TCP/IP: CANThreadHeartBeat - restart status 267
+Mon Oct 03 17:56:14 2011 (.865s): [info]  TCP/IP: OpenConnection - connect(..) 10061
+Mon Oct 03 17:56:14 2011 (.962s): [info]  TCP/IP: CANThreadHeartBeat - restart status 268
+Mon Oct 03 17:56:15 2011 (.968s): [info]  TCP/IP: OpenConnection - connect(..) 10061
+Mon Oct 03 17:56:16 2011 (.062s): [info]  TCP/IP: CANThreadHeartBeat - restart status 269
+Mon Oct 03 17:56:17 2011 (.067s): [info]  TCP/IP: OpenConnection - connect(..) 10061
+Mon Oct 03 17:56:17 2011 (.161s): [info]  TCP/IP: CANThreadHeartBeat - restart status 270
+Mon Oct 03 17:56:31 2011 (.462s): [info]  TCP/IP: CANThreadHeartBeat - restart status 283
+Mon Oct 03 17:56:32 2011 (.463s): [info]  TCP/IP: OpenConnection - connect(..) 10061
+Mon Oct 03 17:56:32 2011 (.562s): [info]  TCP/IP: CANThreadHeartBeat - restart status 284
+Mon Oct 03 17:56:33 2011 (.569s): [info]  TCP/IP: OpenConnection - connect(..) 10061
+Mon Oct 03 17:56:33 2011 (.662s): [info]  TCP/IP: CANThreadHeartBeat - restart status 285
+Mon Oct 03 17:56:34 2011 (.669s): [info]  TCP/IP: OpenConnection - connect(..) 10061
+Mon Oct 03 17:56:34 2011 (.761s): [info]  TCP/IP: CANThreadHeartBeat - restart status 286
+Wed Oct 02 10:25:10 2013 (.304s): [info]  TCP/IP: OpenConnection - connect(..) 10061
+Wed Oct 02 10:25:10 2013 (.397s): [info]  TCP/IP: CANThreadHeartBeat - restart status 56
+Wed Oct 02 10:25:11 2013 (.408s): [info]  TCP/IP: OpenConnection - connect(..) 10061
+Wed Oct 02 10:25:11 2013 (.497s): [info]  TCP/IP: CANThreadHeartBeat - restart status 57
+Wed Oct 02 10:25:12 2013 (.511s): [info]  TCP/IP: OpenConnection - connect(..) 10061
+Wed Oct 02 10:25:12 2013 (.598s): [info]  TCP/IP: CANThreadHeartBeat - restart status 58
+Wed Oct 02 10:25:13 2013 (.610s): [info]  TCP/IP: OpenConnection - connect(..) 10061
+Wed Oct 02 10:25:13 2013 (.698s): [info]  TCP/IP: CANThreadHeartBeat - restart status 59
+Wed Oct 02 10:25:14 2013 (.709s): [info]  TCP/IP: OpenConnection - connect(..) 10061
+Wed Oct 02 10:25:14 2013 (.798s): [info]  TCP/IP: CANThreadHeartBeat - restart status 60
+Wed Oct 02 10:25:15 2013 (.809s): [info]  TCP/IP: OpenConnection - connect(..) 10061
+Wed Oct 02 10:25:15 2013 (.898s): [info]  TCP/IP: CANThreadHeartBeat - restart status 61
+Wed Oct 02 10:25:16 2013 (.909s): [info]  TCP/IP: OpenConnection - connect(..) 10061
+Wed Oct 02 10:25:16 2013 (.998s): [info]  TCP/IP: CANThreadHeartBeat - restart status 62
+Fri Jan 30 13:13:12 2015 (.510s): [info]  TCP/IP: OpenConnection - connect(..) 10061
+Fri Jan 30 13:13:12 2015 (.612s): [info]  TCP/IP: CANThreadHeartBeat - restart status 3359
+Fri Jan 30 13:13:13 2015 (.613s): [info]  TCP/IP: OpenConnection - connect(..) 10061
+Fri Jan 30 13:13:13 2015 (.712s): [info]  TCP/IP: CANThreadHeartBeat - restart status 3360
+Fri Jan 30 13:13:14 2015 (.715s): [info]  TCP/IP: OpenConnection - connect(..) 10061
+Fri Jan 30 13:13:14 2015 (.812s): [info]  TCP/IP: CANThreadHeartBeat - restart status 3361
+Fri Jan 30 13:13:15 2015 (.824s): [info]  TCP/IP: OpenConnection - connect(..) 10061
+Fri Jan 30 13:13:15 2015 (.912s): [info]  TCP/IP: CANThreadHeartBeat - restart status 3362
+Fri Jan 30 13:13:16 2015 (.915s): [info]  TCP/IP: OpenConnection - connect(..) 10061
+Fri Jan 30 13:13:17 2015 (.012s): [info]  TCP/IP: CANThreadHeartBeat - restart status 3363

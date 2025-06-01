@@ -1,0 +1,226 @@
+[OBJECT1]
+ID=10
+GROUP=1
+NAME=Data0
+MOS_ID=0      
+ENABLED=tx
+LENGTH=8
+FREQ=5
+ENDIAN=12345678
+VALUES=4
+  VALUE01    =      INTEGER16,     00, CH0    , %8d [LSB]
+  VALUE02    =      INTEGER16,     16, CH1    , %8d [LSB]
+  VALUE03    =      INTEGER16,     32, CH2    , %8d [LSB]
+  VALUE04    =      INTEGER16,     48, CH3    , %8d [LSB]
+
+[OBJECT2]
+ID=10
+GROUP=1
+NAME=Data1
+MOS_ID=1      
+ENABLED=rx
+LENGTH=8
+FREQ=5
+ENDIAN=12345678
+VALUES=4
+  VALUE01    =      INTEGER16,     00, CH0    , %8d [LSB]
+  VALUE02    =      INTEGER16,     16, CH1    , %8d [LSB]
+  VALUE03    =      INTEGER16,     32, CH2    , %8d [LSB]
+  VALUE04    =      INTEGER16,     48, CH3    , %8d [LSB]
+
+[OBJECT3]
+ID=10
+GROUP=1
+NAME=Data2
+MOS_ID=2      
+ENABLED=rx
+LENGTH=8
+FREQ=5
+ENDIAN=12345678
+VALUES=4
+  VALUE01    =      INTEGER16,     00, CH0    , %8d [LSB]
+  VALUE02    =      INTEGER16,     16, CH1    , %8d [LSB]
+  VALUE03    =      INTEGER16,     32, CH2    , %8d [LSB]
+  VALUE04    =      INTEGER16,     48, CH3    , %8d [LSB]
+
+[OBJECT4]
+ID=10
+GROUP=1
+NAME=Data3
+MOS_ID=3      
+ENABLED=rx
+LENGTH=8
+FREQ=5
+ENDIAN=12345678
+VALUES=4
+  VALUE01    =      INTEGER16,     00, CH0    , %8d [LSB]
+  VALUE02    =      INTEGER16,     16, CH1    , %8d [LSB]
+  VALUE03    =      INTEGER16,     32, CH2    , %8d [LSB]
+  VALUE04    =      INTEGER16,     48, CH3    , %8d [LSB]
+
+[OBJECT5]
+ID=10
+GROUP=1
+NAME=Data4
+MOS_ID=4      
+ENABLED=rx
+LENGTH=8
+FREQ=5
+ENDIAN=12345678
+VALUES=4
+  VALUE01    =      INTEGER16,     00, CH0    , %8d [LSB]
+  VALUE02    =      INTEGER16,     16, CH1    , %8d [LSB]
+  VALUE03    =      INTEGER16,     32, CH2    , %8d [LSB]
+  VALUE04    =      INTEGER16,     48, CH3    , %8d [LSB]
+
+[OBJECT6]
+ID=10
+GROUP=1
+NAME=Data5
+MOS_ID=5      
+ENABLED=tx
+LENGTH=8
+FREQ=5
+ENDIAN=12345678
+VALUES=4
+  VALUE01    =      INTEGER16,     00, CH0    , %8d [LSB]
+  VALUE02    =      INTEGER16,     16, CH1    , %8d [LSB]
+  VALUE03    =      INTEGER16,     32, CH2    , %8d [LSB]
+  VALUE04    =      INTEGER16,     48, CH3    , %8d [LSB]
+
+[OBJECT7]
+ID=10
+GROUP=1
+NAME=Data6
+MOS_ID=6      
+ENABLED=tx
+LENGTH=8
+FREQ=5
+ENDIAN=12345678
+VALUES=4
+  VALUE01    =      INTEGER16,     00, CH0    , %8d [LSB]
+  VALUE02    =      INTEGER16,     16, CH1    , %8d [LSB]
+  VALUE03    =      INTEGER16,     32, CH2    , %8d [LSB]
+  VALUE04    =      INTEGER16,     48, CH3    , %8d [LSB]
+
+[OBJECT8]
+ID=10
+GROUP=1
+NAME=Data7
+MOS_ID=7      
+ENABLED=tx
+LENGTH=8
+FREQ=5
+ENDIAN=12345678
+VALUES=4
+  VALUE01    =      INTEGER16,     00, CH0    , %8d [LSB]
+  VALUE02    =      INTEGER16,     16, CH1    , %8d [LSB]
+  VALUE03    =      INTEGER16,     32, CH2    , %8d [LSB]
+  VALUE04    =      INTEGER16,     48, CH3    , %8d [LSB]
+
+[OBJECT9]
+ID=10
+GROUP=1
+NAME=Data8
+MOS_ID=8      
+ENABLED=tx
+LENGTH=8
+FREQ=5
+ENDIAN=12345678
+VALUES=4
+  VALUE01    =      INTEGER16,     00, CH0    , %8d [LSB]
+  VALUE02    =      INTEGER16,     16, CH1    , %8d [LSB]
+  VALUE03    =      INTEGER16,     32, CH2    , %8d [LSB]
+  VALUE04    =      INTEGER16,     48, CH3    , %8d [LSB]
+
+[OBJECT10]
+ID=10
+GROUP=1
+NAME=Data9
+MOS_ID=9      
+ENABLED=tx
+LENGTH=8
+FREQ=5
+ENDIAN=12345678
+VALUES=4
+  VALUE01    =      INTEGER16,     00, CH0    , %8d [LSB]
+  VALUE02    =      INTEGER16,     16, CH1    , %8d [LSB]
+  VALUE03    =      INTEGER16,     32, CH2    , %8d [LSB]
+  VALUE04    =      INTEGER16,     48, CH3    , %8d [LSB]
+
+[OBJECT11]
+ID=10
+GROUP=1
+NAME=Data10
+MOS_ID=10      
+ENABLED=tx
+LENGTH=8
+FREQ=5
+ENDIAN=12345678
+VALUES=4
+  VALUE01    =      INTEGER16,     00, CH0    , %8d [LSB]
+  VALUE02    =      INTEGER16,     16, CH1    , %8d [LSB]
+  VALUE03    =      INTEGER16,     32, CH2    , %8d [LSB]
+  VALUE04    =      INTEGER16,     48, CH3    , %8d [LSB]
+
+[OBJECT12]
+ID=10
+GROUP=1
+NAME=Data11
+MOS_ID=11      
+ENABLED=tx
+LENGTH=8
+FREQ=5
+ENDIAN=12345678
+VALUES=4
+  VALUE01    =      INTEGER16,     00, CH0    , %8d [LSB]
+  VALUE02    =      INTEGER16,     16, CH1    , %8d [LSB]
+  VALUE03    =      INTEGER16,     32, CH2    , %8d [LSB]
+  VALUE04    =      INTEGER16,     48, CH3    , %8d [LSB]
+
+[OBJECT13]
+ID=10
+GROUP=1
+NAME=Data12
+MOS_ID=12      
+ENABLED=tx
+LENGTH=8
+FREQ=5
+ENDIAN=12345678
+VALUES=4
+  VALUE01    =      INTEGER16,     00, CH0    , %8d [LSB]
+  VALUE02    =      INTEGER16,     16, CH1    , %8d [LSB]
+  VALUE03    =      INTEGER16,     32, CH2    , %8d [LSB]
+  VALUE04    =      INTEGER16,     48, CH3    , %8d [LSB]
+
+[OBJECT14]
+ID=10
+GROUP=1
+NAME=Data13
+MOS_ID=13      
+ENABLED=rx
+LENGTH=8
+FREQ=5
+ENDIAN=12345678
+VALUES=4
+  VALUE01    =      INTEGER16,     00, CH0    , %8d [LSB]
+  VALUE02    =      INTEGER16,     16, CH1    , %8d [LSB]
+  VALUE03    =      INTEGER16,     32, CH2    , %8d [LSB]
+  VALUE04    =      INTEGER16,     48, CH3    , %8d [LSB]
+
+[OBJECT15]
+ID=10
+GROUP=1
+NAME=Data14
+MOS_ID=14      
+ENABLED=rx
+LENGTH=8
+FREQ=5
+ENDIAN=12345678
+VALUES=4
+  VALUE01    =      INTEGER16,     00, CH0    , %8d [LSB]
+  VALUE02    =      INTEGER16,     16, CH1    , %8d [LSB]
+  VALUE03    =      INTEGER16,     32, CH2    , %8d [LSB]
+  VALUE04    =      INTEGER16,     48, CH3    , %8d [LSB]
+
+

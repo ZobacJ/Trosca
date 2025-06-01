@@ -1,0 +1,13 @@
+[OBJECT1]
+ID=259
+GROUP=5000
+NAME=COB
+MOS_ID=256      
+ENABLED=rx
+LENGTH=1
+FREQ=100
+ENDIAN=12345678
+VALUES=2
+  VALUE01    =      UNSIGNED32,    00, ms       , %8d [LSB]
+  VALUE02    =      UNSIGNED16,    32, days     , %8d [LSB]
+

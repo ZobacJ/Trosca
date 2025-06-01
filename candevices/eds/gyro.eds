@@ -1,0 +1,464 @@
+; This EDS file was created by the CANopen Device Monitor 3.0.1
+; (c) 2005 port GmbH Halle/Saale Germany
+; http://www.port.de, mailto:service@port.de
+
+[FileInfo]
+; Please replace the following  values
+; with your real values.
+FileName=default01.eds
+FileVersion=1
+FileRevision=0
+EDSVersion=4.0
+Description=scanned by CANopen Device Monitor
+CreationTime=05:04AM
+CreationDate=07-02-2005
+CreatedBy=CDM
+ModificationTime=05:04AM
+ModificationDate=07-02-2005
+ModifiedBy=CDM
+
+[DeviceInfo]
+ProductName=Generic minimum capability device
+VendorName=0
+VendorNumber=0
+ProductNumber=0
+RevisionNumber=0
+OrderCode=0
+BaudRate_10=0
+BaudRate_20=0
+BaudRate_50=0
+BaudRate_125=1
+BaudRate_250=0
+BaudRate_500=0
+BaudRate_800=0
+BaudRate_1000=0
+DynamicChannelsSupported=0
+GroupMessaging=0
+LSS_Supported=0
+Granularity=0
+SimpleBootUpMaster=0
+SimpleBootUpSlave=0
+NrOfRXPDO=0
+NrOfTXPDO=0
+
+[Comments]
+; Please replace the following values
+; with your real values.
+Lines=0
+
+[DummyUsage]
+Dummy0001=1
+Dummy0002=1
+Dummy0003=1
+Dummy0004=1
+Dummy0005=1
+Dummy0006=1
+Dummy0007=1
+
+[MandatoryObjects]
+SupportedObjects=3
+1=0x1000
+2=0x1001
+3=0x1018
+
+[OptionalObjects]
+SupportedObjects=0
+
+[1000]
+ParameterName=Device Type
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=0
+DefaultValue=0
+
+[1001]
+ParameterName=Error Register
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+PDOMapping=1
+DefaultValue=0
+
+[1018]
+ParameterName=Identity Object
+ObjectType=0x9
+SubNumber=2
+
+[1018sub0]
+ParameterName=number of entries
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+PDOMapping=0
+DefaultValue=1
+
+[1018sub1]
+ParameterName=Vendor Id
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=0
+DefaultValue=0
+ParameterValue=0
+
+[ManufacturerObjects]
+SupportedObjects=26
+1=0x2000
+2=0x2001
+3=0x2002
+4=0x2003
+5=0x2010
+6=0x2011
+7=0x2012
+8=0x2013
+9=0x2014
+10=0x2015
+11=0x2016
+12=0x2017
+13=0x2018
+14=0x2020
+15=0x2021
+16=0x2022
+17=0x2023
+18=0x2024
+19=0x2025
+20=0x2030
+21=0x2031
+22=0x2032
+23=0x2033
+24=0x2040
+25=0x2041
+26=0x2042
+
+[2000]
+ParameterName=CANopen_ID
+ObjectType=0x7
+DataType=0x0003
+AccessType=rw
+PDOMapping=0
+DefaultValue=0
+ParameterValue=127
+
+[2001]
+ParameterName=CANopen_Speed
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+PDOMapping=0
+DefaultValue=500000
+
+[2002]
+ParameterName=CF_PDO_ID_Default - 1=CANopen default, 0=ECG type mapping
+ObjectType=0x7
+DataType=0x0003
+AccessType=rw
+PDOMapping=0
+DefaultValue=1
+
+[2003]
+ParameterName=ST_Control - 0=ST1=0,ST2=0; 1= ST1=1,ST2=0; 2= ST1=0,ST2=1
+ObjectType=0x7
+DataType=0x0003
+AccessType=rw
+PDOMapping=0
+DefaultValue=0x00
+
+[2010]
+ParameterName=SwitchMatrix - volba vstupni prepinaci matice 0=raw,1=VETER,2=USER
+ObjectType=0x7
+DataType=0x0003
+AccessType=rw
+PDOMapping=0
+DefaultValue=0
+
+[2011]
+ParameterName=CF_Matrix_CH0 - uzivatelska matice CH_Out[x]=CH_In[CF_Matrix_CHx]: 0..7
+ObjectType=0x7
+DataType=0x0003
+AccessType=rw
+PDOMapping=0
+DefaultValue=0
+
+[2012]
+ParameterName=CF_Matrix_CH1 - uzivatelska matice CH_Out[x]=CH_In[CF_Matrix_CHx]: 0..7
+ObjectType=0x7
+DataType=0x0003
+AccessType=rw
+PDOMapping=0
+DefaultValue=1
+
+[2013]
+ParameterName=CF_Matrix_CH2 - uzivatelska matice CH_Out[x]=CH_In[CF_Matrix_CHx]: 0..7
+ObjectType=0x7
+DataType=0x0003
+AccessType=rw
+PDOMapping=0
+DefaultValue=2
+
+[2014]
+ParameterName=CF_Matrix_CH3 - uzivatelska matice CH_Out[x]=CH_In[CF_Matrix_CHx]: 0..7
+ObjectType=0x7
+DataType=0x0003
+AccessType=rw
+PDOMapping=0
+DefaultValue=3
+
+[2015]
+ParameterName=CF_Matrix_CH4 - uzivatelska matice CH_Out[x]=CH_In[CF_Matrix_CHx]: 0..7
+ObjectType=0x7
+DataType=0x0003
+AccessType=rw
+PDOMapping=0
+DefaultValue=4
+
+[2016]
+ParameterName=CF_Matrix_CH5 - uzivatelska matice CH_Out[x]=CH_In[CF_Matrix_CHx]: 0..7
+ObjectType=0x7
+DataType=0x0003
+AccessType=rw
+PDOMapping=0
+DefaultValue=5
+
+[2017]
+ParameterName=CF_Matrix_CH6 - uzivatelska matice CH_Out[x]=CH_In[CF_Matrix_CHx]: 0..7
+ObjectType=0x7
+DataType=0x0003
+AccessType=rw
+PDOMapping=0
+DefaultValue=6
+
+[2018]
+ParameterName=CF_Matrix_CH7 - uzivatelska matice CH_Out[x]=CH_In[CF_Matrix_CHx]: 0..7
+ObjectType=0x7
+DataType=0x0003
+AccessType=rw
+PDOMapping=0
+DefaultValue=7
+
+[2020]
+ParameterName=Number_Of_Leads - pocet svodu/kanalu 4=4CH,8=8CH
+ObjectType=0x7
+DataType=0x0003
+AccessType=rw
+PDOMapping=0
+DefaultValue=8
+
+[2021]
+ParameterName=Data_Length - delka slova 1 kanalu: 16=int,32=long
+ObjectType=0x7
+DataType=0x0003
+AccessType=rw
+PDOMapping=0
+DefaultValue=32
+
+[2022]
+ParameterName=Resample - resampling vzorku z AD7716:0=nic, 1=558->500
+ObjectType=0x7
+DataType=0x0003
+AccessType=rw
+PDOMapping=0
+DefaultValue=1
+
+[2023]
+ParameterName=AD7716_Rate - output rate: 125Hz,250Hz,500Hz,1000Hz,2000Hz
+ObjectType=0x7
+DataType=0x0003
+AccessType=rw
+PDOMapping=0
+DefaultValue=500
+
+[2024]
+ParameterName=ADC_Const - delitel hodnoty z AD7716: pro -42950 pak 5uV/LSB
+ObjectType=0x7
+DataType=0x0004
+AccessType=rw
+PDOMapping=0
+DefaultValue=-42950
+
+[2025]
+ParameterName=ADC_Offset - posuv hodnoty z AD7716: pro KGR je to 100000
+ObjectType=0x7
+DataType=0x0004
+AccessType=rw
+PDOMapping=0
+DefaultValue=100000
+
+[2030]
+ParameterName=CANRFLG //Status registr CAN rx
+ObjectType=0x7
+DataType=0x0006
+AccessType=ro
+PDOMapping=0
+DefaultValue=0x0000
+
+[2031]
+ParameterName=CANTFLG //Status registr CAN rx
+ObjectType=0x7
+DataType=0x0006
+AccessType=ro
+PDOMapping=0
+DefaultValue=0x0000
+
+[2032]
+ParameterName=Counter_Sample_Total  - Pocitadlo vzorku z AD7716
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=0
+DefaultValue=0
+
+[2033]
+ParameterName=Counter_Sample_TotalR - Pocitadlo vzorku z AD7716 - resamplovanych
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=0
+DefaultValue=0
+
+[2040]
+ParameterName=CF_Simultan_Calib - 1=simultanni kalibrace, 0=spolecna kalibrace
+ObjectType=0x7
+DataType=0x0003
+AccessType=rw
+PDOMapping=0
+DefaultValue=1
+
+[2041]
+ParameterName=ADC_Const - simultanni rezim
+ObjectType=0x9
+SubNumber=8
+
+[2041sub0]
+ParameterName=ADC_Const - delitel hodnoty z AD7716: pro -42950 pak 5uV/LSB
+ObjectType=0x7
+DataType=0x0004
+AccessType=rw
+PDOMapping=0
+DefaultValue=-42950
+
+[2041sub1]
+ParameterName=ADC_Const - delitel hodnoty z AD7716: pro -42950 pak 5uV/LSB
+ObjectType=0x7
+DataType=0x0004
+AccessType=rw
+PDOMapping=0
+DefaultValue=-42950
+
+[2041sub2]
+ParameterName=ADC_Const - delitel hodnoty z AD7716: pro -42950 pak 5uV/LSB
+ObjectType=0x7
+DataType=0x0004
+AccessType=rw
+PDOMapping=0
+DefaultValue=-42950
+
+[2041sub3]
+ParameterName=ADC_Const - delitel hodnoty z AD7716: pro -42950 pak 5uV/LSB
+ObjectType=0x7
+DataType=0x0004
+AccessType=rw
+PDOMapping=0
+DefaultValue=-42950
+
+[2041sub4]
+ParameterName=ADC_Const - delitel hodnoty z AD7716: pro -42950 pak 5uV/LSB
+ObjectType=0x7
+DataType=0x0004
+AccessType=rw
+PDOMapping=0
+DefaultValue=-42950
+
+[2041sub5]
+ParameterName=ADC_Const - delitel hodnoty z AD7716: pro -42950 pak 5uV/LSB
+ObjectType=0x7
+DataType=0x0004
+AccessType=rw
+PDOMapping=0
+DefaultValue=-42950
+
+[2041sub6]
+ParameterName=ADC_Const - delitel hodnoty z AD7716: pro -42950 pak 5uV/LSB
+ObjectType=0x7
+DataType=0x0004
+AccessType=rw
+PDOMapping=0
+DefaultValue=-42950
+
+[2041sub7]
+ParameterName=ADC_Const - delitel hodnoty z AD7716: pro -42950 pak 5uV/LSB
+ObjectType=0x7
+DataType=0x0004
+AccessType=rw
+PDOMapping=0
+DefaultValue=-42950
+
+[2042]
+ParameterName=ADC_Offset - simultanni rezim
+ObjectType=0x9
+SubNumber=8
+
+[2042sub0]
+ParameterName=ADC_Offset - posuv hodnoty z AD7716: pro KGR je to 100000
+ObjectType=0x7
+DataType=0x0004
+AccessType=rw
+PDOMapping=0
+DefaultValue=100000
+
+[2042sub1]
+ParameterName=ADC_Offset - posuv hodnoty z AD7716: pro KGR je to 100000
+ObjectType=0x7
+DataType=0x0004
+AccessType=rw
+PDOMapping=0
+DefaultValue=100000
+
+[2042sub2]
+ParameterName=ADC_Offset - posuv hodnoty z AD7716: pro KGR je to 100000
+ObjectType=0x7
+DataType=0x0004
+AccessType=rw
+PDOMapping=0
+DefaultValue=100000
+
+[2042sub3]
+ParameterName=ADC_Offset - posuv hodnoty z AD7716: pro KGR je to 100000
+ObjectType=0x7
+DataType=0x0004
+AccessType=rw
+PDOMapping=0
+DefaultValue=100000
+
+[2042sub4]
+ParameterName=ADC_Offset - posuv hodnoty z AD7716: pro KGR je to 100000
+ObjectType=0x7
+DataType=0x0004
+AccessType=rw
+PDOMapping=0
+DefaultValue=100000
+
+[2042sub5]
+ParameterName=ADC_Offset - posuv hodnoty z AD7716: pro KGR je to 100000
+ObjectType=0x7
+DataType=0x0004
+AccessType=rw
+PDOMapping=0
+DefaultValue=100000
+
+[2042sub6]
+ParameterName=ADC_Offset - posuv hodnoty z AD7716: pro KGR je to 100000
+ObjectType=0x7
+DataType=0x0004
+AccessType=rw
+PDOMapping=0
+DefaultValue=100000
+
+[2042sub7]
+ParameterName=ADC_Offset - posuv hodnoty z AD7716: pro KGR je to 100000
+ObjectType=0x7
+DataType=0x0004
+AccessType=rw
+PDOMapping=0
+DefaultValue=100000
+

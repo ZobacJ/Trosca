@@ -1,0 +1,282 @@
+; This EDS file was created by the CANopen Device Monitor 3.0.1
+; (c) 2005 port GmbH Halle/Saale Germany
+; http://www.port.de, mailto:service@port.de
+
+[FileInfo]
+; Please replace the following  values
+; with your real values.
+FileName=default01.eds
+FileVersion=1
+FileRevision=0
+EDSVersion=4.0
+Description=scanned by CANopen Device Monitor
+CreationTime=05:04AM
+CreationDate=07-02-2005
+CreatedBy=CDM
+ModificationTime=05:04AM
+ModificationDate=07-02-2005
+ModifiedBy=CDM
+
+[DeviceInfo]
+ProductName=Generic minimum capability device
+VendorName=0
+VendorNumber=0
+ProductNumber=0
+RevisionNumber=0
+OrderCode=0
+BaudRate_10=0
+BaudRate_20=0
+BaudRate_50=0
+BaudRate_125=1
+BaudRate_250=0
+BaudRate_500=0
+BaudRate_800=0
+BaudRate_1000=0
+DynamicChannelsSupported=0
+GroupMessaging=0
+LSS_Supported=0
+Granularity=0
+SimpleBootUpMaster=0
+SimpleBootUpSlave=0
+NrOfRXPDO=0
+NrOfTXPDO=0
+
+[Comments]
+; Please replace the following values
+; with your real values.
+Lines=0
+
+[DummyUsage]
+Dummy0001=1
+Dummy0002=1
+Dummy0003=1
+Dummy0004=1
+Dummy0005=1
+Dummy0006=1
+Dummy0007=1
+
+[MandatoryObjects]
+SupportedObjects=3
+1=0x1000
+2=0x1001
+3=0x1018
+
+[OptionalObjects]
+SupportedObjects=0
+
+[1000]
+ParameterName=Device Type
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=0
+DefaultValue=0
+
+[1001]
+ParameterName=Error Register
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+PDOMapping=1
+DefaultValue=0
+
+[1018]
+ParameterName=Identity Object
+ObjectType=0x9
+SubNumber=2
+
+[1018sub0]
+ParameterName=number of entries
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+PDOMapping=0
+DefaultValue=1
+
+[1018sub1]
+ParameterName=Vendor Id
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=0
+DefaultValue=0
+ParameterValue=0
+
+[ManufacturerObjects]
+SupportedObjects=18
+1=0x2010
+2=0x2011
+3=0x2012
+4=0x2013
+5=0x2014
+6=0x2015
+7=0x2016
+8=0x2020
+9=0x2021
+10=0x2022
+11=0x2023
+12=0x2024
+13=0x2025
+14=0x2030
+15=0x2031
+16=0x2032
+17=0x2033
+18=0x2034
+
+[2010]
+ParameterName=U_KONST (fraction=hodnota/2^31)
+ObjectType=0x7
+DataType=0x0004
+AccessType=rw
+PDOMapping=0
+DefaultValue=1360687872
+
+[2011]
+ParameterName=U_OFFST (udaj=hodnota/256/256)
+ObjectType=0x7
+DataType=0x0004
+AccessType=rw
+PDOMapping=0
+DefaultValue=-589824
+ParameterValue=-589824
+
+[2012]
+ParameterName=I_KONST (fraction=hodnota/2^31)
+ObjectType=0x7
+DataType=0x0004
+AccessType=rw
+PDOMapping=0
+DefaultValue=1344831744
+ParameterValue=1344831744
+
+[2013]
+ParameterName=I_OFFST (udaj=hodnota/256/256)
+ObjectType=0x7
+DataType=0x0004
+AccessType=rw
+PDOMapping=0
+DefaultValue=-512000
+ParameterValue=-917504
+
+[2014]
+ParameterName=U_RMS_ZERO (udaj=hodnota/256/256)
+ObjectType=0x7
+DataType=0x0004
+AccessType=rw
+PDOMapping=0
+DefaultValue=819200
+ParameterValue=819200
+
+[2015]
+ParameterName=I_RMS_ZERO (udaj=hodnota/256/256)
+ObjectType=0x7
+DataType=0x0004
+AccessType=rw
+PDOMapping=0
+DefaultValue=819200
+ParameterValue=819200
+
+[2016]
+ParameterName=CANOPEN_ID (udaj=hodnota/256)
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+PDOMapping=0
+DefaultValue=0x00000000
+ParameterValue=0x00001100
+
+[2020]
+ParameterName=X_ERR_RD (udaj=hodnota/256)
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=0
+DefaultValue=0x00000000
+ParameterValue=0x00000000
+
+[2021]
+ParameterName=X_ERR_WR (udaj=hodnota/256)
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=0
+DefaultValue=0x00000000
+ParameterValue=0x00000000
+
+[2022]
+ParameterName=X_ERR_BO citac busoff (udaj=hodnota/256) 
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=0
+DefaultValue=0x00000000
+ParameterValue=0x00000000
+
+[2023]
+ParameterName=status registru CAN (udaj=hodnota/256)
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=0
+DefaultValue=0x00000000
+ParameterValue=0x00001800
+
+[2024]
+ParameterName=citac CTLEC (udaj=hodnota/256)
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=0
+DefaultValue=0x00000000
+ParameterValue=0x00000000
+
+[2025]
+ParameterName=cteni posledni chyby na CANu X_ERR_LEC (udaj=hodnota/256)
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=0
+DefaultValue=0x00000000
+ParameterValue=0x00000000
+
+[2030]
+ParameterName=vrati adresu aktualni banky veflashce (udaj=hodnota/256)
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=0
+DefaultValue=0x00000001
+ParameterValue=0xd1c06000
+
+[2031]
+ParameterName=obnovi hodnoty paraemtry z posledni banky - nutno zadat PASSWORD $12345600
+ObjectType=0x7
+DataType=0x0007
+AccessType=wo
+PDOMapping=0
+DefaultValue=0x00000000
+
+[2032]
+ParameterName=obnovi default hodnoty parmetru - nutno zadat PASSWORD
+ObjectType=0x7
+DataType=0x0007
+AccessType=wo
+PDOMapping=0
+DefaultValue=0x00000000
+
+[2033]
+ParameterName=zapis kalibracnich konstant do pameti flash - nutno zadat PASSWORD
+ObjectType=0x7
+DataType=0x0007
+AccessType=wo
+PDOMapping=0
+DefaultValue=0x00000000
+
+[2034]
+ParameterName=vymaze celou pamet flash rpo parametry - nutno zadat PASSWORD 
+ObjectType=0x7
+DataType=0x0007
+AccessType=wo
+PDOMapping=0
+DefaultValue=0x00000000
+

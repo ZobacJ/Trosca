@@ -1,0 +1,27 @@
+[OBJECT1]
+NAME=tx1
+GROUP=1
+MOS_ID=384      
+ENABLED=tx
+LENGTH=8
+FREQ=500
+ENDIAN=12345678
+VALUES=4
+  VALUE01    =       UNSIGNED16,    00, TEC_Out, %8d [LSB]
+  VALUE02    =       UNSIGNED16,    16, CC_Out, %8d [LSB]
+  VALUE03    =       UNSIGNED16,    32, Tmp1    , %8d [LSB]
+  VALUE04    =       UNSIGNED16,    48, Tmp2    , %8d [LSB]
+
+[OBJECT2]
+NAME=rx1
+GROUP=1
+MOS_ID=512      
+ENABLED=rx
+LENGTH=8
+FREQ=500
+ENDIAN=12345678
+VALUES=4
+  VALUE01    =       UNSIGNED16,    00, TEC_Req   , %8d [LSB]
+  VALUE02    =       UNSIGNED16,    16, TEC_Value , %8d [LSB]
+  VALUE03    =       UNSIGNED16,    32, CC_Req    , %8d [LSB]
+  VALUE04    =       UNSIGNED16,    48, CC_Value  , %8d [LSB]

@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ISO15745ProfileContainer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="CANopen_Main.xsd">
+  <ISO15745Profile>
+    <ProfileHeader>
+      <ProfileIdentification>CAN device profile</ProfileIdentification>
+      <ProfileRevision>1</ProfileRevision>
+      <ProfileName> </ProfileName>
+      <ProfileSource/>
+      <ProfileClassID>Device</ProfileClassID>
+      <ISO15745Reference>
+        <ISO15745Part>1</ISO15745Part>
+        <ISO15745Edition>1</ISO15745Edition>
+        <ProfileTechnology>CANopen</ProfileTechnology>
+      </ISO15745Reference>
+    </ProfileHeader>
+    <ProfileBody xsi:type="ProfileBody_Device_CANopen" fileName="wtmata.xml" fileCreator="" fileCreationDate="2005-07-02" fileModifiedBy="unknown" fileModificationDate="2006-02-08" fileVersion="">
+    <DeviceIdentity> 
+        <vendorName>0</vendorName>  
+        <deviceFamily>
+          <label lang="en"></label>
+	  <description lang="en"></description>
+        </deviceFamily> 
+        <productFamily></productFamily> 
+        <productName>Generic minimum capability device</productName> 
+      </DeviceIdentity> 
+      <DeviceManager> 
+      </DeviceManager> 
+      <DeviceFunction> 
+        <capabilities>
+          <characteristicsList>
+	    <characteristic>
+	      <characteristicName>
+		<label lang="en"/>
+	      </characteristicName>
+	      <characteristicContent>
+		<label lang="en"/>
+	      </characteristicContent>
+	    </characteristic>
+	  </characteristicsList>
+	</capabilities>   
+      </DeviceFunction>
+      <ApplicationProcess> 
+	<parameterList>
+          <parameter uniqueID="UID_1" access="readWrite">
+            <label lang="en">CANopen_ID</label>
+            <INT/>
+            <defaultValue value="26"/>
+          </parameter>
+          <parameter uniqueID="UID_2" access="readWrite">
+            <label lang="en">CANopen_Speed</label>
+            <UDINT/>
+            <defaultValue value="500000"/>
+          </parameter>
+          <parameter uniqueID="UID_3" access="readWrite">
+            <label lang="en">CF_CompareValue1</label>
+            <INT/>
+            <defaultValue value="2500"/>
+          </parameter>
+          <parameter uniqueID="UID_4" access="readWrite">
+            <label lang="en">CF_F1_Decimation</label>
+            <INT/>
+            <defaultValue value="0"/>
+          </parameter>
+          <parameter uniqueID="UID_5" access="readWrite">
+            <label lang="en">CF_F2_Decimation</label>
+            <INT/>
+            <defaultValue value="0"/>
+          </parameter>
+          <parameter uniqueID="UID_6" access="readWrite">
+            <label lang="en">CF_F2_Length</label>
+            <INT/>
+            <defaultValue value="0"/>
+          </parameter>
+          <parameter uniqueID="UID_7" access="readWrite">
+            <label lang="en">CF_TPDO1_Select</label>
+            <INT/>
+            <defaultValue value="0"/>
+          </parameter>
+          <parameter uniqueID="UID_8" access="readWrite">
+            <label lang="en">CF_TPDO2_Select</label>
+            <INT/>
+            <defaultValue value="0"/>
+          </parameter>
+          <parameter uniqueID="UID_9" access="readWrite">
+            <label lang="en">CF_Vtec_Constant - korekce te napeti termoclankem - nekompenzovane na CJ v mV</label>
+            <REAL/>
+            <defaultValue value="0.0"/>
+          </parameter>
+          <parameter uniqueID="UID_10" access="readWrite">
+            <label lang="en">CF_Vtec_Offset - korekce te napeti termoclankem - nekompenzovane na CJ v mV</label>
+            <REAL/>
+            <defaultValue value="0.0"/>
+          </parameter>
+          <parameter uniqueID="UID_11" access="readWrite">
+            <label lang="en">CF_Vcjn_Constant - korekce napeti na vystupu teplotniho cidla AD22100 v mV</label>
+            <REAL/>
+            <defaultValue value="0.0"/>
+          </parameter>
+          <parameter uniqueID="UID_12" access="readWrite">
+            <label lang="en">CF_Vcjn_Offset - korekce napeti na vystupu teplotniho cidla AD22100 v mV</label>
+            <REAL/>
+            <defaultValue value="0.0"/>
+          </parameter>
+          <parameter uniqueID="UID_13" access="readWrite">
+            <label lang="en">CF_Tcjn_Constant - korekce teploty studeneho konce ve stupnich</label>
+            <REAL/>
+            <defaultValue value="0.0"/>
+          </parameter>
+          <parameter uniqueID="UID_14" access="readWrite">
+            <label lang="en">CF_Tcjn_Offset - korekce teploty studeneho konce ve stupnich</label>
+            <REAL/>
+            <defaultValue value="0.0"/>
+          </parameter>
+          <parameter uniqueID="UID_15" access="readWrite">
+            <label lang="en">CF_RVcj_Constant - korekce hodnoty termoel. napeti studeneho konce v uV</label>
+            <REAL/>
+            <defaultValue value="0.0"/>
+          </parameter>
+          <parameter uniqueID="UID_16" access="readWrite">
+            <label lang="en">CF_RVcj_Offset - korekce hodnoty termoel. napeti studeneho konce v uV</label>
+            <REAL/>
+            <defaultValue value="0.0"/>
+          </parameter>
+          <parameter uniqueID="UID_17" access="readWrite">
+            <label lang="en">CF_RVtec_Constant - korekce skutecne hodnoty te napeti na termoclanku v uV (vc. korekce na CJ)</label>
+            <REAL/>
+            <defaultValue value="0.0"/>
+          </parameter>
+          <parameter uniqueID="UID_18" access="readWrite">
+            <label lang="en">CF_RVtec_Offset - korekce skutecne hodnoty te napeti na termoclanku v uV (vc. korekce na CJ)</label>
+            <REAL/>
+            <defaultValue value="0.0"/>
+          </parameter>
+          <parameter uniqueID="UID_19" access="readWrite">
+            <label lang="en">CF_Ttec_Constant - korekce konecne hodnoty teploty TMAT</label>
+            <REAL/>
+            <defaultValue value="0.0"/>
+          </parameter>
+          <parameter uniqueID="UID_20" access="readWrite">
+            <label lang="en">CF_Ttec_Offset - korekce konecne hodnoty teploty TMAT</label>
+            <REAL/>
+            <defaultValue value="0.0"/>
+          </parameter>
+          <parameter uniqueID="UID_21" access="read">
+            <label lang="en">CANRFLG //Status registr CAN rx</label>
+            <UINT/>
+            <defaultValue value="0x0000"/>
+          </parameter>
+          <parameter uniqueID="UID_22" access="read">
+            <label lang="en">CANTFLG //Status registr CAN rx</label>
+            <UINT/>
+            <defaultValue value="0x0000"/>
+          </parameter>
+          <parameter uniqueID="UID_23" access="read">
+            <label lang="en">Ct_CAN_Packet //Status pocet odeslanych TPDO1</label>
+            <UINT/>
+            <defaultValue value="0"/>
+          </parameter>
+	</parameterList>
+      </ApplicationProcess>
+    </ProfileBody> 
+  </ISO15745Profile>
+  <ISO15745Profile>
+    <ProfileHeader>
+      <ProfileIdentification>CAN comm net profile</ProfileIdentification>
+      <ProfileRevision>1</ProfileRevision>
+      <ProfileName/>
+      <ProfileSource/>
+      <ProfileClassID>CommunicationNetwork</ProfileClassID>
+      <ISO15745Reference>
+        <ISO15745Part>1</ISO15745Part>
+        <ISO15745Edition>1</ISO15745Edition>
+        <ProfileTechnology>CANopen</ProfileTechnology>
+      </ISO15745Reference>
+    </ProfileHeader>
+    <ProfileBody xsi:type="ProfileBody_CommunicationNetwork_CANopen" fileName="wtmata.xml" fileCreator="" fileCreationDate="2005-07-02" fileModifiedBy="unknown" fileModificationDate="2006-02-08" fileVersion="">
+    <ApplicationLayers>
+      <CANopenObjectList>
+        <CANopenObject index="1000" name="Device Type" objectType="7" PDOmapping="false" dataType="07" accessType="ro" defaultValue="0" />
+        <CANopenObject index="1001" name="Error Register" objectType="7" PDOmapping="true" dataType="05" accessType="ro" defaultValue="0" />
+        <CANopenObject index="1018" name="Identity Object" objectType="9" subNumber="2">
+          <CANopenSubObject subIndex="00" name="number of entries" objectType="7" dataType="05" accessType="ro" defaultValue="1" PDOmapping="false" />
+          <CANopenSubObject subIndex="01" name="Vendor Id" objectType="7" dataType="07" accessType="ro" defaultValue="0" PDOmapping="false" />
+        </CANopenObject>
+        <CANopenObject index="2000" name="CANopen_ID" objectType="7" PDOmapping="false" uniqueIDRef="UID_1" />
+        <CANopenObject index="2001" name="CANopen_Speed" objectType="7" PDOmapping="false" uniqueIDRef="UID_2" />
+        <CANopenObject index="2002" name="CF_CompareValue1" objectType="7" PDOmapping="false" uniqueIDRef="UID_3" />
+        <CANopenObject index="2004" name="CF_F1_Decimation" objectType="7" PDOmapping="false" uniqueIDRef="UID_4" />
+        <CANopenObject index="2005" name="CF_F2_Decimation" objectType="7" PDOmapping="false" uniqueIDRef="UID_5" />
+        <CANopenObject index="2006" name="CF_F2_Length" objectType="7" PDOmapping="false" uniqueIDRef="UID_6" />
+        <CANopenObject index="2007" name="CF_TPDO1_Select" objectType="7" PDOmapping="false" uniqueIDRef="UID_7" />
+        <CANopenObject index="2008" name="CF_TPDO2_Select" objectType="7" PDOmapping="false" uniqueIDRef="UID_8" />
+        <CANopenObject index="2010" name="CF_Vtec_Constant - korekce te napeti termoclankem - nekompenzovane na CJ v mV" objectType="7" PDOmapping="false" uniqueIDRef="UID_9" />
+        <CANopenObject index="2011" name="CF_Vtec_Offset - korekce te napeti termoclankem - nekompenzovane na CJ v mV" objectType="7" PDOmapping="false" uniqueIDRef="UID_10" />
+        <CANopenObject index="2012" name="CF_Vcjn_Constant - korekce napeti na vystupu teplotniho cidla AD22100 v mV" objectType="7" PDOmapping="false" uniqueIDRef="UID_11" />
+        <CANopenObject index="2013" name="CF_Vcjn_Offset - korekce napeti na vystupu teplotniho cidla AD22100 v mV" objectType="7" PDOmapping="false" uniqueIDRef="UID_12" />
+        <CANopenObject index="2014" name="CF_Tcjn_Constant - korekce teploty studeneho konce ve stupnich" objectType="7" PDOmapping="false" uniqueIDRef="UID_13" />
+        <CANopenObject index="2015" name="CF_Tcjn_Offset - korekce teploty studeneho konce ve stupnich" objectType="7" PDOmapping="false" uniqueIDRef="UID_14" />
+        <CANopenObject index="2016" name="CF_RVcj_Constant - korekce hodnoty termoel. napeti studeneho konce v uV" objectType="7" PDOmapping="false" uniqueIDRef="UID_15" />
+        <CANopenObject index="2017" name="CF_RVcj_Offset - korekce hodnoty termoel. napeti studeneho konce v uV" objectType="7" PDOmapping="false" uniqueIDRef="UID_16" />
+        <CANopenObject index="2018" name="CF_RVtec_Constant - korekce skutecne hodnoty te napeti na termoclanku v uV (vc. korekce na CJ)" objectType="7" PDOmapping="false" uniqueIDRef="UID_17" />
+        <CANopenObject index="2019" name="CF_RVtec_Offset - korekce skutecne hodnoty te napeti na termoclanku v uV (vc. korekce na CJ)" objectType="7" PDOmapping="false" uniqueIDRef="UID_18" />
+        <CANopenObject index="201a" name="CF_Ttec_Constant - korekce konecne hodnoty teploty TMAT" objectType="7" PDOmapping="false" uniqueIDRef="UID_19" />
+        <CANopenObject index="201b" name="CF_Ttec_Offset - korekce konecne hodnoty teploty TMAT" objectType="7" PDOmapping="false" uniqueIDRef="UID_20" />
+        <CANopenObject index="2030" name="CANRFLG //Status registr CAN rx" objectType="7" PDOmapping="false" uniqueIDRef="UID_21" />
+        <CANopenObject index="2031" name="CANTFLG //Status registr CAN rx" objectType="7" PDOmapping="false" uniqueIDRef="UID_22" />
+        <CANopenObject index="2032" name="Ct_CAN_Packet //Status pocet odeslanych TPDO1" objectType="7" PDOmapping="false" uniqueIDRef="UID_23" />
+      </CANopenObjectList>
+      <dummyUsage>
+        <dummy entry="Dummy0001=1"/>
+        <dummy entry="Dummy0002=1"/>
+        <dummy entry="Dummy0003=1"/>
+        <dummy entry="Dummy0004=1"/>
+        <dummy entry="Dummy0005=1"/>
+        <dummy entry="Dummy0006=1"/>
+        <dummy entry="Dummy0007=1"/>
+      </dummyUsage>
+    </ApplicationLayers>
+    <TransportLayers>
+      <PhysicalLayer>
+        <baudRate>
+          <supportedBaudRate value="125 Kbps" />
+        </baudRate>
+      </PhysicalLayer>
+    </TransportLayers>
+    <NetworkManagement>
+      <CANopenGeneralFeatures dynamicChannels="0" selfStartingDevice="false" SDORequestingDevice="false" granularity="0" nrOfRxPDO="0" nrOfTxPDO="0" bootUpSlave="false" layerSettingServiceSlave="false" />
+    </NetworkManagement>
+    </ProfileBody>
+  </ISO15745Profile>
+</ISO15745ProfileContainer>

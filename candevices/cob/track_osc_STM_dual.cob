@@ -1,0 +1,101 @@
+[OBJECT1]
+NAME=rx1
+MOS_ID=384      
+ENABLED=rx
+LENGTH=8
+FREQ=2
+ENDIAN=12345678
+VALUES=3
+  VALUE01    =       INTEGER32,    00, phase_A, %8d [LSB]   
+  VALUE02    =       INTEGER16,    32, I_A	, %8d [LSB]
+  VALUE03    = 	     INTEGER16,	   48, Q_A	, %8d [LSB]
+
+[OBJECT2]
+NAME=rx2
+MOS_ID=640      
+ENABLED=rx
+LENGTH=8
+FREQ=2
+ENDIAN=12345678
+VALUES=3
+  VALUE01    =       INTEGER32,    00, dFTW_out, %8d [LSB]
+  VALUE02    =       INTEGER16,    32, DA1_out, %8d [LSB]
+  VALUE03    =       INTEGER16,    48, DA2_out, %8d [LSB]
+
+
+[OBJECT3]
+NAME=rx3
+MOS_ID=896      
+ENABLED=rx
+LENGTH=8
+FREQ=2
+ENDIAN=12345678
+VALUES=2
+  VALUE01    =       INTEGER32,    00, DDS_mHz, %8d [LSB]
+  VALUE02    =       INTEGER32,    32, dF_mHz, %8d [LSB]
+	
+[OBJECT4]
+NAME=rx4
+MOS_ID=1152      
+ENABLED=rx
+LENGTH=8
+FREQ=2
+ENDIAN=12345678
+VALUES=3
+  VALUE01    =       UNSIGNED16,   00, CH1_mag, %8d [LSB]
+  VALUE02    =       UNSIGNED16,   16, CH2_mag, %8d [LSB]
+  VALUE03    =       UNSIGNED8,    32, act_chan, %8d [LSB]   
+
+[OBJECT5]
+NAME=tx1
+GROUP=1
+MOS_ID=512     
+ENABLED=tx
+LENGTH=8
+FREQ=500
+ENDIAN=12345678
+VALUES=3
+   VALUE01    =       INTEGER16,    	00, DA1_value, %8d [LSB]
+   VALUE02    =       INTEGER16,    	16, DA2_value, %8d [LSB]
+   VALUE03    =       UNSIGNED32,    	32, f_NCO_Hz, %8d [LSB]
+
+
+[OBJECT6]
+ID=250
+GROUP=1000
+NAME=SDOrx
+MOS_ID=1408      
+ENABLED=rx
+LENGTH=8
+FREQ=50
+;ENDIAN=21436587
+ENDIAN=12345678
+VALUES=4
+  VALUE01    =      UNSIGNED8,     00, Command    , %8d [LSB]
+  VALUE02    =     UNSIGNED16,     08, Index      , %8d [LSB]
+  VALUE03    =      UNSIGNED8,     24, SubIndex   , %8d [LSB]
+  VALUE04    =     UNSIGNED32,     32, Data       , %8d [LSB]
+
+
+[OBJECT7]
+ID=251
+GROUP=1000
+NAME=SDOtx
+MOS_ID=1536     
+ENABLED=tx
+LENGTH=8
+FREQ=50
+;ENDIAN=21436587
+ENDIAN=12345678
+VALUES=4
+  VALUE01    =      UNSIGNED8,     00, Command    , %8d [LSB]
+  VALUE02    =     UNSIGNED16,     08, Index      , %8d [LSB]
+  VALUE03    =      UNSIGNED8,     24, SubIndex   , %8d [LSB]
+  VALUE04    =     UNSIGNED32,     32, Data       , %8d [LSB]
+
+
+
+
+
+	
+  

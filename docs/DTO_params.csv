@@ -1,0 +1,221 @@
+Index [HEX],Subindex [HEX],Min,Max,Name
+1000,,,,Device Type
+1001,,,,Error Register
+1008,,,,Manufacturer Device Name
+1009,,,,Manufacturer Hardware Version
+1018,,,,Identity Object
+1018,0,,,number of entries
+1018,1,,,Vendor Id
+2000,,,,CANopen_ID
+2001,,,,CANopen_Speed
+2002,,,,CF_build_date
+2006,,,,Phase detector remote reset //write 1 to reset phase counter
+2007,,0x000,0x111,PID controllers group enable // 0x100..NCO |  0x010..DAC2  |  0x001..DAC1
+2008,,,,Sampling configuration
+2008,0,,,Highest Subindex
+2008,1,10000,300000,ADC & phase detector sampling frequency [Hz]
+2008,2,1,100,PID & DDS decimation ratio
+2008,3,0,16,Phase LPF bit shift
+2008,5,,,Counter gate time/PDO3 period [s]
+2008,6,1,1e6,"PDO3 scale [1..Hz, 1e3..mHz, 1e6..uHz]"
+2008,10,,,ISR computing time [us]
+2009,,,,CANOpen timing - FLASH
+2009,0,,,Highest Subindex
+2009,1,,,PDO1_period_ms
+2009,2,,,PDO2_period_ms
+2009,3,,,"PDO3_period_ms - set via ""Counter gate time"""
+2009,4,,,PDO4_period_ms
+2009,10,0,1,CAN auto restart enable
+2009,11,1,604800,CAN auto restart period s
+200A,,,,NCO & NCO loop filter - FLASH
+200A,0,,,Highest Subindex
+200A,1,0,2,"NCO_loop_filter_input //0..phase det, 1..DAC1 out, 2..DAC2 out, 4..I, 5..Q"
+200A,2,,,NCO_PID_Kc //P-I-D controller gain [-]
+200A,3,,,NCO_PI_fc //P-I corner frequency [Hz]
+200A,4,,,NCO_PD_fc //P-D corner frequency [Hz]
+200A,5,,,NCO_freq // NCO central frequency [Hz]
+200A,6,,,NCO_deltaF_min [Hz]
+200A,7,,,NCO_deltaF_max [Hz]
+200A,8,,,NCO_PID_Setpoint
+200A,9,0,1,*** NCO PID ENABLED ***
+200A,A,,,NCO_PID_lowpass_fc [Hz]
+200A,B,0,1,*** NCO_PID_lowpass_enabled ***
+200A,C,,,NCO_linear_drift [Hz/s]
+200A,D,1,,NCO_linear_drift_sampling_period [ms]
+200A,E,0,1,NCO_linear_drift_enabled
+200B,,,,NCO & NCO loop filter - RAM
+200B,0,,,Highest Subindex
+200B,1,0,2,"NCO_loop_filter_input //0..phase det, 1..DAC1 out, 2..DAC2 out, 4..I, 5..Q"
+200B,2,,,NCO_PID_Kc //P-I-D controller gain [-]
+200B,3,,,NCO_PI_fc //P-I corner frequency [Hz]
+200B,4,,,NCO_PD_fc //P-D corner frequency [Hz]
+200B,5,,,NCO_freq // NCO central frequency [Hz]
+200B,6,,,NCO_deltaF_min [Hz]
+200B,7,,,NCO_deltaF_max [Hz]
+200B,8,,,NCO_PID_Setpoint
+200B,9,0,1,*** NCO PID ENABLED ***
+200B,A,,,NCO_PID_lowpass_fc [Hz]
+200B,B,0,1,*** NCO_PID_lowpass_enabled ***
+200B,C,,,NCO_linear_drift [Hz/s]
+200B,D,1,,NCO_linear_drift_sampling_period [ms]
+200B,E,0,1,NCO_linear_drift_enabled
+200B,10,,,*** Configure FNC for f0 [Hz] ***
+200B,11,,,*** Configure T.O. for f0 [Hz] ***
+200B,12,0,1,*** Update NCO_freq from DDS action *** // write 1
+200B,20,0,1,NCO phase modulation enabled
+200B,21,0,0xFFFFFFFF,NCO phase modulation FTW
+200C,,,,DDS_System_Settings
+200C,0,,,Highest Subindex
+200C,D,1,,NCO_linear_drift_sampling_period [ms]
+200C,15,0,500000000,DDS_reference_freq [Hz] - FLASH
+200C,16,1,20,"DDS_reference_freq_multiplier [-] // 1, 4..20 - FLASH"
+200C,17,0,3,"DDS_charge_pump_current // [0..75uA, 1..100uA, 2..125uA, 3..150uA] - FLASH"
+200C,18,0,1,DDS_Reset //write 1 to reset DDS
+200D,,,,DDS_Channel_Settings - FLASH
+200D,0,,,Highest Subindex
+200D,1,,,CH_fixed_freq_Hz[0]
+200D,2,,,CH_fixed_freq_Hz[1]
+200D,3,,,CH_fixed_freq_Hz[2]
+200D,4,,,CH_fixed_freq_Hz[3]
+200D,5,0,1023,CH_amplitude[0] ... (0-1023)
+200D,6,0,1023,CH_amplitude[1]
+200D,7,0,1023,CH_amplitude[2]
+200D,8,0,1023,CH_amplitude[3]
+200D,9,0,1,CH_sine[0] ... 0 - cos / 1 - sin
+200D,A,0,1,CH_sine[1]
+200D,B,0,1,CH_sine[2]
+200D,C,0,1,CH_sine[3]
+200D,D,0,16383,CH_phase[0] ... (0-16383)
+200D,E,0,16383,CH_phase[1]
+200D,F,0,16383,CH_phase[2]
+200D,10,0,16383,CH_phase[3]
+200D,11,0,1,CH_NCO_mode[0] ... 0 - fixed freq. / 1 - NCO+PLL
+200D,12,0,1,CH_NCO_mode[1]
+200D,13,0,1,CH_NCO_mode[2]
+200D,14,0,1,CH_NCO_mode[3]
+200D,15,0,3,CH_DAC_scale[0]
+200D,16,0,3,CH_DAC_scale[1]
+200D,17,0,3,CH_DAC_scale[2]
+200D,18,0,3,CH_DAC_scale[3]
+200E,,,,DDS_Channel_Settings - RAM
+200E,0,,,Highest Subindex
+200E,1,,,CH_fixed_freq_Hz[0]
+200E,2,,,CH_fixed_freq_Hz[1]
+200E,3,,,CH_fixed_freq_Hz[2]
+200E,4,,,CH_fixed_freq_Hz[3]
+200E,5,0,1023,CH_amplitude[0] ... (0-1023)
+200E,6,0,1023,CH_amplitude[1]
+200E,7,0,1023,CH_amplitude[2]
+200E,8,0,1023,CH_amplitude[3]
+200E,9,0,1,CH_sine[0] ... 0 - cos / 1 - sin
+200E,A,0,1,CH_sine[1]
+200E,B,0,1,CH_sine[2]
+200E,C,0,1,CH_sine[3]
+200E,D,0,16383,CH_phase[0] ... (0-16383)
+200E,E,0,16383,CH_phase[1]
+200E,F,0,16383,CH_phase[2]
+200E,10,0,16383,CH_phase[3]
+200E,11,0,1,CH_NCO_mode[0] ... 0 - fixed freq. / 1 - NCO+PLL
+200E,12,0,1,CH_NCO_mode[1]
+200E,13,0,1,CH_NCO_mode[2]
+200E,14,0,1,CH_NCO_mode[3]
+200E,15,0,3,CH_DAC_scale[0]
+200E,16,0,3,CH_DAC_scale[1]
+200E,17,0,3,CH_DAC_scale[2]
+200E,18,0,3,CH_DAC_scale[3]
+2011,,,,ADC_Settings - FLASH
+2011,0,,,Highest Subindex
+2011,1,-32768,32767,I_Offset [LSB]
+2011,2,-32768,32767,Q_Offset [LSB]
+2011,4,0,1,Measure ADC offsets on startup
+2011,5,0,15,"DDS channels muted for measuring offset - mask (CH4..8,CH3..4,CH2..2,CH1..1)"
+2011,6,0,1,I/Q phase detector enabled
+2011,7,10,16,ADC resolution [bits] [10/12/14/16]
+2012,,,,ADC_Settings - RAM
+2012,0,,,Highest Subindex
+2012,1,-32768,32767,I_Offset [LSB]
+2012,2,-32768,32767,Q_Offset [LSB]
+2012,3,,,Measure offset - now //write 1 to measure offsets
+2012,5,0,15,"DDS channels muted for measuring offset - mask (CH4..8,CH3..4,CH2..2,CH1..1)"
+2012,6,0,1,I/Q phase detector enabled
+2012,7,10,16,ADC resolution [bits] [10/12/14/16]
+2015,,,,DDC settings - FLASH
+2015,0,,,Highest Subindex
+2015,1,0,1,DDC on/off
+2015,4,0.0,1.0,DDC channel A gain
+2015,5,0.0,1.0,DDC channel B gain
+2015,6,0,32767,Channel selection hysteresis [LSB]
+2015,7,1,1000,Channel selection period [ms]
+2015,10,0,2,"Channel select - 0..auto, 1..CH1, 2..CH2"
+2016,,,,DDC settings - RAM
+2016,0,,,Highest Subindex
+2016,1,0,1,DDC on/off
+2016,4,0.0,1.0,DDC channel A gain
+2016,5,0.0,1.0,DDC channel B gain
+2016,6,0,32767,Channel selection hysteresis [LSB]
+2016,7,1,1000,Channel selection period [ms]
+2016,10,0,2,"Channel select - 0..auto, 1..CH1, 2..CH2"
+201F,,,,DAC1 & DAC1 loop filter settings - FLASH
+201F,0,,,Highest Subindex
+201F,1,,,"DAC1 loop filter input //0..phase det, 2..DAC2, 3..NCO delta FTW"
+201F,2,-2048,2047,DAC1 output value //default output value
+201F,3,,,DAC1 PID Kc
+201F,4,,,DAC1 PID P-I corner [Hz]
+201F,5,,,DAC1 PID P-D corner [Hz]
+201F,6,-2048,2047,DAC1 min
+201F,7,-2048,2047,DAC1 max
+201F,8,,,DAC1 PID setpoint
+201F,A,0,2.5e5,DAC1 low-pass fc [Hz]
+201F,B,0,1,DAC1 low-pass enabled
+201F,C,0,1,DAC1 proportional output only
+201F,D,0,1,DAC1 zero if PID disabled
+2020,,,,DAC2 & DAC2 loop filter settings - FLASH
+2020,0,,,Highest Subindex
+2020,1,,,"DAC2 loop filter input //0..phase det, 1..DAC1, 3..NCO delta FTW"
+2020,2,-2048,2047,DAC2 output value //default output value
+2020,3,,,DAC2 PID Kc
+2020,4,,,DAC2 PID P-I corner [Hz]
+2020,5,,,DAC2 PID P-D corner [Hz]
+2020,6,-2048,2047,DAC2 min
+2020,7,-2048,2047,DAC2 max
+2020,8,,,DAC2 PID setpoint
+2020,A,0,2.5e5,DAC2 low-pass fc [Hz]
+2020,B,0,1,DAC2 low-pass enabled
+2020,C,0,1,DAC2 proportional output only
+2020,D,0,1,DAC2 zero if PID disabled
+2021,,,,DAC1 & DAC1 loop filter settings - RAM
+2021,0,,,Highest Subindex
+2021,1,,,"DAC1 loop filter input //0..phase det, 2..DAC2, 3..NCO delta FTW, 4..I, 5..Q"
+2021,2,-2048,2047,DAC1 output value
+2021,3,,,DAC1 PID Kc
+2021,4,,,DAC1 PID P-I corner [Hz]
+2021,5,,,DAC1 PID P-D corner [Hz]
+2021,6,-2048,2047,DAC1 min
+2021,7,-2048,2047,DAC1 max
+2021,8,,,DAC1 PID setpoint
+2021,9,,,*** DAC1 PID ENABLED ***
+2021,A,0,2.5e5,DAC1 low-pass fc [Hz]
+2021,B,0,1,DAC1 low-pass enabled
+2021,C,0,1,DAC1 proportional output only
+2021,D,0,1,DAC1 zero if PID disabled
+2022,,,,DAC2 & DAC2 loop filter settings - RAM
+2022,0,,,Highest Subindex
+2022,1,,,"DAC2 loop filter input //0..phase det, 1..DAC1, 3..NCO delta FTW, 4..I, 5..Q"
+2022,2,-2048,2047,DAC2 output value
+2022,3,,,DAC2 PID Kc
+2022,4,,,DAC2 PID P-I corner [Hz]
+2022,5,,,DAC2 PID P-D corner [Hz]
+2022,6,-2048,2047,DAC2 min
+2022,7,-2048,2047,DAC2 max
+2022,8,,,DAC2 PID setpoint
+2022,9,,,*** DAC2 PID ENABLED ***
+2022,A,0,2.5e5,DAC2 low-pass fc [Hz]
+2022,B,0,1,DAC2 low-pass enabled
+2022,C,0,1,DAC2 proportional output only
+2022,D,0,1,DAC2 zero if PID disabled
+2031,,,,CAN protocol errors in data phase
+2032,,,,CAN warnings
+2033,,,,CAN protocol errors in arbitration phase
+2034,,,,CAN bus off states
+2035,,,,STM_FDCAN_Status
+5FFF,,,,EmSA

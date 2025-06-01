@@ -1,0 +1,22 @@
+[OBJECT1]
+NAME=nmtTx
+MOS_ID=0
+ENABLED=tx
+LENGTH=8
+FREQ=500
+GROUP=2000
+VALUES=2
+
+	VALUE01    =       UNSIGNED8,    00, command, %8d [LSB]
+	VALUE02    =       UNSIGNED8,    08, node_id, %8d [LSB]
+[OBJECT2]
+NAME=nmtTxSw
+MOS_ID=2048
+ENABLED=tx
+LENGTH=8
+FREQ=500
+GROUP=2000
+VALUES=2
+
+	VALUE01    =       UNSIGNED8,    00, command, %8d [LSB]
+	VALUE02    =       UNSIGNED8,    08, node_id, %8d [LSB]

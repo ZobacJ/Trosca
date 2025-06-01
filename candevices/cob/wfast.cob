@@ -1,0 +1,15 @@
+[OBJECT1]
+ID=36
+GROUP=1
+NAME=F25kHz
+MOS_ID=3714
+ENABLED=rx
+LENGTH=8
+FREQ=25000
+ENDIAN=12345678
+VALUES=4
+  VALUE01    =       INTEGER16,    00, U1       , %8d [LSB]
+  VALUE02    =       INTEGER16,    16, I1       , %8d [LSB]
+  VALUE03    =       INTEGER16,    32, U2       , %8d [LSB]
+  VALUE04    =       INTEGER16,    48, I2       , %8d [LSB]
+

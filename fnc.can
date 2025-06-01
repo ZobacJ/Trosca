@@ -1,0 +1,68 @@
+[GLOBAL]
+;COMTYPE: 1=isa, 2=lpt, 3=usb, 4=sim, 5=tcpip
+;KGRLimit=  536870912
+;KGRLimit =          4
+;MonitorFileRx=WDSMONRX.TXT
+;MonitorFileTx=WDSMONTX.TXT
+;CANAlyzer=zaznam.txt
+COMTYPE=5
+ThreadSleep=1
+BufferLength=400000
+CANSpeed=800000
+VerboseMode=0
+KGRLimit= 2147483647  ;+- limituje hodnotu cisla pro KGRRead buffer
+Highway=0;+- limituje hodnotu cisla pro KGRRead buffer
+
+[USB]
+SerialNumber=DE123456
+COMQueueLength=163840
+PacketLength=1
+
+[ISA]
+BoardAddress= 0xd800
+
+[LPT]
+BoardAddress=0x378
+
+[SIM]
+;SawAmplitude    = 16777216
+;SawAmplitude    = 65536
+SimTimer=1
+SinusAmplitude= 256
+
+[TCPIP]
+;server=172.17.64.110 
+;localhost
+server=127.0.0.1
+port=50102
+heartbeat=500
+heartbeatchannel=65535
+lifetime=5000
+packing_interval=1
+
+[CanDevices]
+COBpath=candevices\cob\
+Obj_Offset=      00000
+Chan_Offset=     10000
+Chan_Multiple=   100
+DCFpath=candevices\dcf\
+EDSpath=candevices\eds\
+
+[ChannelMapping]
+;ChanNew = ChanOld
+active= 0
+
+
+
+[CanDevice001]
+Device=track_osc_STM_dual.cob
+CanOpenID=46
+Config=i046_track_osc_STM_dual.dcf
+UserDesc=track_osc_STM_dual
+
+[CanDevice002]
+Device=usbcan.cob
+CanOpenID=127
+Config=i127_usbcan.dcf
+UserDesc=usbcan
+

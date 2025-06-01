@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nápověda - TrOSCa</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        h1, h2, h3 {
+            color: #000000;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 24px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .section {
+            margin-bottom: 28px;
+        }
+        .section p, .section ul {
+            margin: 10px 0;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #666;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        code, pre {
+            background: #eee;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 1em;
+        }
+        .lstlisting {
+            background: #f8f8f8;
+            border: 1px solid #ddd;
+            padding: 10px;
+            font-family: "Consolas", "Courier New", monospace;
+            font-size: 0.98em;
+            overflow-x: auto;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Nápověda k programu TrOSCa</h1>
+    <div class="section">
+        <h2>Úvod</h2>
+        <p>
+            <strong>TrOSCa</strong> (Tracking Oscillator Control Application) je aplikace pro ovládání karty Tracking oscilátoru vyvinuté na UPT AVČR. Umožňuje uživatelsky přívětivé nastavení parametrů systému, vizualizaci a export dat. Program je vhodný jak pro běžnou obsluhu, tak pro experimentální a vývojové účely. Tato nápověda poskytuje přehled funkcí, ovládacích prvků a architektury programu. Nápověda je víceméně kopií textu bakalářské práce autora. K převodu z Latexu do HTML byl použit Microsoft Copilot.
+        </p>
+    </div>
+
+<div class="section">
+    <h2>Popis použitého hardware</h2>
+    <p>
+        Tento program ovládá kartu jednotky detekce zázněje (Beat Detection Unit – BDU) v kombinaci s digitálním tracking oscilátorem.
+        Nejčastější scénáře, pro které je možné kartu nakonfigurovat, jsou:
+        <ul>
+            <li>Zpětnovazební smyčka pro potlačení šumu vlákna (FNC)</li>
+            <li>Sledovací oscilátor pro úzkopásmovou filtraci záznějového signálu</li>
+            <li>Smyčka pro stabilizaci lokálního laseru (dedrifting)</li>
+        </ul>
+    </p>
+    <img src="obrazky/martinova_karta.png" alt="Schéma systému pro měření fázového šumu (Autor: Ing M. Čížek, Ph.D.)" style="width:100%;">
+    <p class="caption">Schéma systému pro měření fázového šumu (Autor: Ing M. Čížek, Ph.D.)</p>
+
+    <h3>Beat Detection Unit (BDU)</h3>
+    <p>
+        Fázové odchylky měřeného signálu se zjišťují porovnáním s přesným lokálním oscilátorem s frekvencí blízkou měřenému signálu – detekcí zázněje.
+        Pro koherentní detekci zázněje je nezbytné zajistit, aby signál a lokální oscilátor (LO) interferovaly. Pokud však mají odlišnou polarizaci, nedojde k interferenci a detekovaný signál zaniká. Z tohoto důvodu se v přijímači používá <em>polarizační hybrid</em> rozkládající signál do dvou ortogonálních polarizačních složek detekovaných rychlými fotodiodami.
+    </p>
+    <p>
+        V ideálním případě, kdy je polarizace přijímaného signálu zarovnaná s polarizací LO, dojde k maximálnímu překryvu a tím i maximální intenzitě interference v jednom detektoru a nulové detekci v detektoru druhém.
+    </p>
+    <p>
+        V nejhorším případě, kdy je polarizace signálu otočena o 45° vůči LO, dojde k rozdělení výkonu rovnoměrně mezi obě ortogonální složky hybridu. Detekční jednotka tak zajišťuje, že při nestabilní polarizaci bude vždy alespoň na jednom z výstupů detekovatelný signál.
+    </p>
+
+    <h3>Analytická jednotka</h3>
+    <p>
+        Pro zpracování dat z BDU a další analýzu fázového šumu je využita analytická jednotka – dvoukanálový digitální sledovací oscilátor. Zařízení používá STM32H743 32-bit ARM DSP a AD9959 DDS. Teoretická maximální šířka pásma regulační smyčky je 50 kHz pro jednokanálový režim a 25 kHz pro dvoukanálový. Šířka pásma detekce fáze dosahuje 500 kHz. Zařízení je konstruováno jako karta typu Eurocard, s vnějším světem komunikuje pomocí CAN sběrnice a je dobře kompatibilní se systémy používanými na UPT i VUT.
+    </p>
+    <p>
+        Zázněj z fotodiody o frekvenci v řádu desítek MHz (obvykle např. 80 MHz) je směšován na nízkou mezifrekvenci 0,5 MHz, která je zpracovatelná 2 MHz A/D převodníkem signálového procesoru jednotky. Následně je v digitálním směšovači (DDC) extrahována synfázní (I) a kvadraturní (Q) složka signálu. V bloku "Phase detection and unwrapping" je signál digitálně zpracován unwrapping algoritmem a je vypočítána okamžitá fáze a amplituda.
+    </p>
+    <p>
+        Pro výpočet fáze je použit vztah:
+    </p>
+    <div class="lstlisting">
+        φ[n] = atan2(Q[n], I[n])
+    </div>
+    <p>
+        Rozbalení fáze probíhá přičítáním resp. odčítáním násobků 2π při překročení fáze v tomto rozsahu. DSP automaticky vybírá kanál roviny se silnějším signálem, což zabrání výpadkům v případě polarizačních fluktuací.
+    </p>
+
+    <h3>Akční zásah jednotky</h3>
+    <p>
+        Kromě analýzy signálu jednotka disponuje také výstupním hardwarem umožňujícím reagovat na změny na vstupu tvorbou výstupních řídicích signálů. Tímto hardwarem je:
+    </p>
+    <ul>
+        <li>4kanálová DDS (direct digital synthesis – přímý digitální syntezátor) Analog Devices AD9959</li>
+        <li>2× D/A převodník</li>
+    </ul>
+    <p>
+        DDS i D/A převodníky mají předřazené dedikované PID kontroléry. Díky digitalizaci systému jsou vstupy i parametry PID kontrolérů, D/A převodníků, DDS atd. uživatelsky programovatelné a je povoleno i kaskádní řetězení bloků. Díky tomu je možné tvořit nejen detekční, ale i složité zpětnovazební systémy přizpůsobené konkrétní aplikaci. Nejčastější scénáře byly zmíněny v odstavci "Vybrané zařízení".
+    </p>
+</div>
+
+    <div class="section">
+        <h2>Architektura programu</h2>
+        <p>
+            Program je napsán v 32bitové verzi Pythonu 3.11 kvůli kompatibilitě s knihovnou <code>canusb32.dll</code>. Data z karty jsou přijímána ve vlákně, ukládána do bufferů a periodicky zobrazována v grafech. Uživatel může měnit parametry zařízení, které jsou zapisovány zpět na kartu. Program umožňuje logování časových průběhů i spekter do CSV/textových souborů a ukládání konfiguračních souborů ve formátu JSON.
+        </p>
+        <p>
+            Strukturu programu tvoří dvě hlavní části:
+        </p>
+        <ul>
+            <li><strong>Can</strong> – backend, zajišťuje komunikaci s kartou přes CAN sběrnici, ukládá data a předává je GUI.</li>
+            <li><strong>GUI</strong> – frontend, tvoří grafické rozhraní, zajišťuje interakci s uživatelem a předává data třídě Can.</li>
+        </ul>
+        <img src="obrazky/Trosca_hlavni_bloky.drawio-1.png" alt="Blokové schéma aplikace"style="width:80%;">
+    </div>
+
+    <div class="section">
+        <h2>Ovládací prvky a rozhraní</h2>
+
+    <h3>Levá část GUI – ovládací panel</h3>
+    <ol>
+        <li><strong>Výběr CAN ID karty</strong> a přepínač pro povolení CAN komunikace.</li>
+        <li><strong>Přepínač CAN TX</strong> pro povolení zápisu na sběrnici. Po přepnutí žádá o potvrzení – bezpečnostní prvek chránící proti nechtěné změně parametrů.</li>
+        <li><strong>Přepínač a indikátor pro logování dat</strong> do souboru, včetně zobrazení zbývajícího času záznamu.</li>
+        <li><strong>Skupina sliderů a spinboxů</strong> pro ovládání parametrů (DA1, DA2, f<sub>NCO</sub>).</li>
+        <li><strong>Tlačítka</strong> pro reset fázového detektoru, refresh hodnot a otevření nastavení. <code>Reset fázového detektoru</code> je užitečný při velkém posunu fáze (např. kvůli malému signálu a ztrátě synchronizace). Tlačítko <code>Refresh</code> volá funkci <code>one_shot_update</code>.</li>
+        <li><strong>Sekce pro ruční čtení a zápis SDO</strong> (index, subindex, data, tlačítka Upload/Download). Seznam parametrů karty lze zobrazit pomocí <strong>Zobrazit → Tabulka SDO parametrů</strong>. Index a subindex je třeba zadat v hexadecimálním formátu. Vstup/výstup data zatím nerespektuje automaticky typ proměnné na daném subindexu.</li>
+    </ol>
+
+    <h3>Pravá část GUI – vizualizace dat</h3>
+    <p>Pravá část je rozdělena na dvě skupiny:</p>
+    <ul>
+        <li>
+            <strong>Horní skupina</strong> obsahuje grafy časových průběhů (fázové a frekvenční odchylky, intenzity kanálů, frekvence DDS) a IQ diagram.
+            <ol>
+                <li>
+                    <strong>IQ diagram:</strong> Zobrazuje aktuální velikost synfázní a kvadraturní složky aktivního kanálu v rovině IQ. Graf je v bezrozměrných jednotkách. Historie je realizována postupným slábnutím bodů. Počet bodů a periodu obnovení lze nastavit v <strong>Upravit → Nastavení aplikace</strong>. Hodnoty nad 200 bodů mohou zpomalit počítač.
+                </li>
+                <li>
+                    <strong>Časové diagramy</strong> zobrazují posledních x hodnot vybraných proměnných. Na ose x je stáří dat v sekundách. Délku historie i periodu obnovení grafů lze nastavit v <strong>Upravit → Nastavení aplikace</strong>. Pravým kliknutím na grafy jsou dostupné volby widgetu <code>pyqtgraph</code>. Dostupné widgety jsou:
+                    <ol type="a">
+                        <li><strong>Intenzity kanálů</strong> – úroveň detekovaná na vstupu A/D převodníku 1 a 2 (bezrozměrné jednotky). Karta automaticky vybírá silnější kanál. V ostatních grafech jsou zpracována data z tohoto kanálu.</li>
+                        <li><strong>Fázové odchylky</strong> – rozdíl mezi fází lokálního laseru a měřeného vstupu v [rad]. Zobrazitelná fáze je od −2<sup>16</sup>π do 2<sup>16</sup>π.</li>
+                        <li><strong>Frekvenční odchylky</strong> – zobrazuje fázové odchylky přepočtené na frekvenci a průměrované každou jednu sekundu.</li>
+                        <li><strong>Frekvence DDS</strong> – zobrazuje frekvenci akčního zásahu, pokud je DDS aktivní.</li>
+                    </ol>
+                </li>
+            </ol>
+        </li>
+        <li>
+            <strong>Dolní skupina</strong> obsahuje spektrální grafy (PSD fázového šumu a PSD akčního zásahu DDS). Vlastnosti spekter (perioda obnovení, integrační čas, typ okna) lze nastavit v <strong>Upravit → Nastavení aplikace</strong>.
+        </li>
+    </ul>
+    <img src="obrazky/Trosca_nastaveni_aplikace.png" alt="Screenshoty možností časových grafů a spekter" style="width:70%;">
+    <p class="caption">Screenshoty možností časových grafů a spekter</p>
+
+    <h3>Nastavení SDO parametrů karty</h3>
+    <p>
+        Pomocí <strong>Upravit → Nastavení karty</strong> lze v grafickém rozhraní měnit nastavení karty. Otevře se zjednodušené schéma karty znázorňující jednotku akčního zásahu. Jednotka má 3 vstupy z analytické jednotky:
+    </p>
+    <ul>
+        <li>Fáze</li>
+        <li>I složka</li>
+        <li>Q složka</li>
+    </ul>
+    <p>a dále 3 výstupní větve:</p>
+    <ul>
+        <li><strong>DDS větev</strong> (někde nazývaná jako NCO) – generuje frekvenci</li>
+        <li><strong>Větve DA1 a DA2</strong> – generují úroveň signálu</li>
+    </ul>
+    <p>Každá větev obsahuje:</p>
+    <ul>
+        <li><strong>vstupní filtr</strong> typu dolní propust s nastavitelným mezním kmitočtem <code>LP_fc</code>, který lze aktivovat/deaktivovat</li>
+        <li><strong>PID regulátor</strong> s nastavitelnými parametry:
+            <ul>
+                <li><code>Kc</code> – lineární koeficient zesílení regulátoru</li>
+                <li><code>PI</code> – integrační koeficient udávaný v Hz</li>
+                <li><code>PD</code> – derivační koeficient udávaný v Hz</li>
+                <li><code>setpoint</code> – cílová hodnota na kterou PID stabilizuje</li>
+            </ul>
+        </li>
+    </ul>
+    <p>
+        Zapnutím/vypnutím PID regulátoru se daná větev aktivuje/deaktivuje. Každá větev může mít jako vstup jeden ze 3 vstupů definovaných výše, nebo výstup jiného PID regulátoru.
+    </p>
+    <p>
+        Po otevření se program pokusí stáhnout data z karty. Konfiguraci karty je možné uložit do <code>.json</code> souboru nebo ji z něj načíst. Pokud je povolen zápis, je možné nahrát konfiguraci do karty stisknutím tlačítka <strong>Nahrát do zařízení a zavřít</strong> nebo <strong>Nahrát do zařízení</strong>. Program přepisuje pouze hodnoty uložené v RAM karty, po jejím vypnutí a zapnutí se načtou opět výchozí hodnoty.
+    </p>
+    <img src="obrazky/Trosca_nastaveni_karty.png" alt="Screenshot okna nastavení karty" style="width:70%;">
+    <p class="caption">Screenshot okna nastavení karty</p>
+
+    <h3>Ukládání dat</h3>
+    <p>
+        Aplikace TrOSCa umožňuje dva základní způsoby ukládání dat: periodické logování časových proměnných a jednorázový export spekter.
+    </p>
+    <strong>Periodické logování časových proměnných</strong>
+    <p>
+        Pro průběžné ukládání hodnot vybraných proměnných slouží přepínač <code>Ukládat data do souboru</code> v levém panelu aplikace. Před jeho aktivací je třeba otevřít dialog pro nastavení logování (<strong>Upravit → Nastavení exportu dat</strong>), kde lze zvolit:
+    </p>
+    <ul>
+        <li>Seznam proměnných k ukládání (např. <code>phase_A_rad</code>, <code>DDS_Hz</code> atd.)</li>
+        <li>Interval ukládání v milisekundách (např. 200 ms). Pokud je nastaveno 0, ukládání probíhá v každém cyklu smyčky <code>can_rx_thread</code>. Toto nastavení je vhodné, pokud například chceme z uložených dat počítat spektra. Řidší logování je užitečné pro dlouhodobé sledování stability systému.</li>
+        <li>Cestu k souboru</li>
+        <li>Oddělovač (např. středník <code>;</code> nebo čárka)</li>
+        <li>Délku záznamu v hodinách, minutách a sekundách (0 = neomezeně)</li>
+    </ul>
+    <p>
+        Po zaškrtnutí pole <code>Ukládat data do souboru</code> začne aplikace v zadaném intervalu ukládat hodnoty vybraných proměnných do CSV souboru. Pokud soubor již existuje, uživatel si může vybrat, zda chce pokračovat ve stávajícím souboru (pokud odpovídá hlavička), přepsat jej, nebo zvolit nový soubor.
+    </p>
+    <img src="obrazky/Trosca_soubor_existuje.png" alt="Dialog chránící před nechtěným přepsáním souboru" style="width:30%;">
+    <img src="obrazky/Trosca_nastaveni_exportu_dat.png" alt="Screenshot okna nastavení ukládání dat" style="width:20%;">
+    <p>
+        První řádek csv souboru obsahuje hlavičku s názvy sloupců (např. <code>timestamp;phase_A_rad;DDS_Hz</code>). Každý další řádek obsahuje časovou značku a hodnoty proměnných v daném okamžiku. Program používá desetinnou tečku.
+    </p>
+    <pre class="lstlisting">
+timestamp;phase_A_rad;DDS_Hz
+2024-06-01 12:00:00.123;0.0123;1000000
+2024-06-01 12:00:00.323;0.0125;1000001
+...
+    </pre>
+
+    <strong>Jednorázový export spekter</strong>
+    <p>
+        Pro export aktuálních spekter slouží položka <strong>Exportovat spektra</strong> v menu <strong>Soubor</strong>. Po zvolení této akce se uloží aktuální spektra a otevře se dialog pro výběr cílového souboru. Do souboru jsou následně uložena aktuální spektra:
+    </p>
+    <ul>
+        <li>Amplituda šumu (dBc)</li>
+        <li>PSD šumu (dBc/Hz)</li>
+        <li>Frekvenční osa šumu (Hz)</li>
+        <li>Amplituda akčního zásahu (dBc)</li>
+        <li>PSD akčního zásahu (dBc/Hz)</li>
+        <li>Frekvenční osa akčního zásahu (Hz)</li>
+    </ul>
+    <pre class="lstlisting">
+mag_phase;psd_phase;freq_phase;mag_dds;psd_dds;freq_dds
+-45.12;-80.34;0.10;-60.23;-90.12;0.10
+-44.98;-80.10;0.20;-60.10;-89.98;0.20
+...
+    </pre
+</div>
+
+ <div class="section">
+        <h2>Protokol CANOpen</h2>
+        <p>
+            CANOpen definuje způsob interpretace dat na aplikační úrovni. Každé zařízení má přidělené unikátní <strong>CANOpen ID</strong> (1–127) a komunikuje dvěma hlavními způsoby:
+        </p>
+        <ul>
+            <li>
+                <strong>PDO (Process Data Object)</strong> – periodický, rychlý přenos dat bez potvrzení. Celé 8B pole obsahuje užitečná data.
+            </li>
+            <li>
+                <strong>SDO (Service Data Object)</strong> – slouží k přenosu parametrů zařízení (čtení/zápis) s potvrzením. Používá se pro konfiguraci a řízení. 8B datové pole je rozděleno na:
+                <ul>
+                    <li><code>Command</code> – 8 bitů – určuje, zda jde o čtení nebo zápis</li>
+                    <li><code>Index</code> – 16 bitů</li>
+                    <li><code>Subindex</code> – 8 bitů</li>
+                    <li><code>Data</code> – 32 bitů</li>
+                </ul>
+                Přenos probíhá ve dvou krocích: příkaz a odpověď. Například:
+                <ul>
+                    <li>čtení: <code>Command = 64</code>, odpověď: <code>66</code></li>
+                    <li>zápis: <code>Command = 43</code>, odpověď: <code>96</code></li>
+                    <li>chyba: <code>128</code></li>
+                </ul>
+            </li>
+        </ul>
+
+        <h4>Struktura ID zprávy</h4>
+        <p>
+            Typ zprávy se určuje jako součet <em>CANOpen ID</em> a tzv. <em>kódu funkce</em>, dle tabulky:
+        </p>
+        <table style="border-collapse: collapse; width: 60%;">
+            <caption style="caption-side: top; font-weight: bold;">Kódy typů zpráv ve standardu CANOpen</caption>
+            <thead>
+                <tr style="background: #f0f0f0;">
+                    <th style="border: 1px solid #bbb; padding: 4px;">Typ zprávy</th>
+                    <th style="border: 1px solid #bbb; padding: 4px;">Směr do zařízení (tx)</th>
+                    <th style="border: 1px solid #bbb; padding: 4px;">Směr ze zařízení (rx)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="border: 1px solid #bbb; padding: 4px;">PDO1</td>
+                    <td style="border: 1px solid #bbb; padding: 4px;">512</td>
+                    <td style="border: 1px solid #bbb; padding: 4px;">384</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #bbb; padding: 4px;">PDO2</td>
+                    <td style="border: 1px solid #bbb; padding: 4px;">768</td>
+                    <td style="border: 1px solid #bbb; padding: 4px;">640</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #bbb; padding: 4px;">PDO3</td>
+                    <td style="border: 1px solid #bbb; padding: 4px;">1024</td>
+                    <td style="border: 1px solid #bbb; padding: 4px;">896</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #bbb; padding: 4px;">PDO4</td>
+                    <td style="border: 1px solid #bbb; padding: 4px;">1280</td>
+                    <td style="border: 1px solid #bbb; padding: 4px;">1152</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #bbb; padding: 4px;">SDO</td>
+                    <td style="border: 1px solid #bbb; padding: 4px;">1536</td>
+                    <td style="border: 1px solid #bbb; padding: 4px;">1408</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+            Například: pro zařízení s <code>CANOpen ID = 42</code> a příjem PDO1 bude výsledné ID zprávy: <code>42 + 384 = 426</code>.
+        </p>
+
+        <h4>Kanály a subkanály</h4>
+        <p>
+            Při práci s daty se rozlišují:
+        </p>
+        <ul>
+            <li><strong>Kanál</strong> – odpovídá celé 8B zprávě s daným ID.</li>
+            <li><strong>Subkanál</strong> – odkazuje na konkrétní proměnnou uvnitř zprávy.</li>
+        </ul>
+        <p>
+            Čísla se počítají následovně:
+        </p>
+        <ul>
+            <li><code>kanál = CANOpenID + kód funkce</code></li>
+            <li><code>subkanál = CANOpenID × 100 + 10000 + pořadí proměnné</code></li>
+        </ul>
+        <p>
+            Například: 2. proměnná zařízení s <code>CANOpen ID = 42</code> má subkanál <code>14202</code>.
+        </p>
+        <img src="obrazky/CAN_PacketStructureFrames_1.png" alt="Struktura CAN rámce">
+    </div>
+
+    <div class="section">
+        <h2>Backend</h2>
+        <img src="obrazky/Trosca_Can.drawio-1.png" alt="Vývojový diagram komunikačního threadu. Vytvořeno pomocí Draw.io" style="width:60%; display:block; margin:auto;">
+        <p class="caption">Vývojový diagram komunikačního threadu. Vytvořeno pomocí Draw.io</p>
+
+        <h3>Inicializace</h3>
+        <p>
+            Při inicializaci se načítá DLL knihovna pro komunikaci s CAN převodníkem (<code>canusb32.dll</code>). Pro každou proměnnou, která se čte z CAN, je vytvořen pointer na správný typ, např.: <code>ctypes.pointer(ctypes.c_int32())</code>. Pro proměnné, u kterých je nutné pracovat s více vzorky naráz, jsou vytvořeny buffery (např. <code>phase_A_rad_buffer</code>) pomocí <code>deque</code>. Dále jsou provedena další prvotní nastavení (<code>DTO_ID</code>, cesty k souborům, eventy pro řízení vláken).
+        </p>
+
+        <h3>RX/TX thread</h3>
+        <p>
+            Odesílání a příjem dat běží v nekonečné smyčce <code>can_rx_thread</code>. Tato smyčka běží ve vlastním threadu, aby neinterferovala s během GUI.
+        </p>
+        <p>
+            Na začátku smyčky je zpracována odesílací fronta funkcí <code>process_tx_queue</code> za předpokladu, že je odesílání povoleno. Podporuje odesílání jak PDO, tak SDO packetů.
+        </p>
+        <p>
+            Pokud jsou nějaká data k přijetí, vrátí funkce <code>self.can_dll.CANReadChanNum()</code> hodnotu kanálu, kterému data náleží. Následně jsou data roztřízena podle <code>kanálu</code> a <code>subkanálu</code>. Funkce <code>can_dll.CANReadChan</code> přečte data na subkanálu specifikovaném číslem proměnné a uloží jej do proměnné <code>self.CANOpenData</code>. Funkce <code>rx_data_sort</code> hodnotu z <code>self.CANOpenData</code> uloží do proměnné odpovídajícího danému subID ve správném formátu (int16, int32...). Pokud má proměnná buffer, zapíše se do něj nová hodnota.
+        </p>
+        <p>
+            Nakonec smyčky se zavolá funkce <code>write_data_log_row_can</code>, pokud je aktivní rychlé logování (logování každého přijatého packetu), která hodnoty vybraných proměnných uloží do CSV souboru.
+        </p>
+        <p>
+            Pokud funkce <code>self.can_dll.CANReadChanNum()</code> nevrátí v limitu 10 sekund ani jednou platné číslo kanálu, je detekováno přerušení spojení a flag <code>self.device_connected</code> je nastaven jako <code>False</code> a zastaví se aktualizace GUI, které se spustí po opětovném navázání spojení.
+        </p>
+        <p>
+            Více informací o protokolu, jakým jsou přijímána a odesílána data, rozdílech mezi SDO a PDO položkami, CanID, indexu a subindexu je uvedeno v sekci <a href="#protokol-canopen">Protokol CANOpen</a>.
+        </p>
+
+        <h3>Výpočet spektra – funkce <code>calculate_spectral_data</code></h3>
+        <p>
+            Pro spektrální analýzu časově diskrétního signálu jsou spočteny dvě hlavní charakteristiky:
+        </p>
+        <ul>
+            <li><strong>amplitudové spektrum</strong> – ukazuje velikost harmonických složek signálu,</li>
+            <li><strong>spektrální výkonová hustota (PSD)</strong> – popisuje rozložení výkonu signálu ve frekvenční oblasti.</li>
+        </ul>
+        <p>
+            Výpočet je založen na rychlé Fourierově transformaci (FFT) a zahrnuje oknování signálu, normalizaci a převod na dB.
+        </p>
+        <strong>Vstupy:</strong>
+        <ul>
+            <li><code>buffer</code> – vstupní data (např. <code>Phase_A_rad_buffer</code>)</li>
+            <li><code>target_length</code> – zamýšlená délka bufferu</li>
+            <li><code>set_buffer_length</code> – funkce pro nastavení délky bufferu (handler)</li>
+            <li><code>time_interval_sec</code> – délka časového úseku pro výpočet (integrační čas) [s]</li>
+            <li><code>sample_period_ms</code> – vzorkovací perioda [ms]</li>
+            <li><code>window_type</code> – typ okna pro oknování signálu (Hanning, Hamming, Blackman, Rectangular)</li>
+        </ul>
+        <strong>Výstupy:</strong>
+        <ul>
+            <li><code>freq</code> – frekvenční osa (Hz)</li>
+            <li><code>magnitude_dB</code> – amplitudové spektrum v dB</li>
+            <li><code>psd_dB</code> – výkonové spektrum (Power Spectral Density, PSD) v dB</li>
+        </ul>
+        <strong>Algoritmus výpočtu:</strong>
+        <ol>
+            <li>
+                <strong>Příprava dat:</strong> Za předpokladu, že ve vstupním bufferu je dostatek vzorků, je vybráno ke zpracování posledních N vzorků, kde
+                <br>
+                <code>N = integrační čas / T_s</code>, kde <code>T_s</code> je vzorkovací perioda <code>sample_period_ms*1000</code>
+            </li>
+            <li>
+                <strong>Odečtení střední hodnoty:</strong> Od signálu je odečtena střední hodnota, aby se odstranila DC složka.
+            </li>
+            <li>
+                <strong>Oknování signálu:</strong> Na signál x[n] je aplikováno zvolené okno w[n]:<br>
+                <code>x_w[n] = x[n] * w[n]</code>
+            </li>
+            <li>
+                <strong>Výpočet normalizačního faktoru:</strong> Oknování způsobuje změnu celkové energie signálu. Pro správnou normalizaci výkonového a amplitudového spektra je nutné vypočíst korekční koeficienty. Pro amplitudové spektrum je to součet všech složek okna a pro PSD je to energie okna:<br>
+                <code>U_A = sum(w[n])</code><br>
+                <code>U_PSD = sum(w[n]^2)</code>
+            </li>
+            <li>
+                <strong>Výpočet FFT:</strong> Na oknovaný signál x_w[n] je aplikována rychlá Fourierova transformace:<br>
+                <code>X[k] = sum(x_w[n] * exp(-j 2π kn/N))</code>
+            </li>
+            <li>
+                <strong>Výpočet amplitudového spektra:</strong> Protože reálný signál má symetrické spektrum, používá se tzv. jednotstranné spektrum, kde všechny složky kromě DC složky a Nyquistovy frekvence se násobí dvěma:<br>
+                <code>
+                    A[k] = |X[k]| / U_A, &nbsp; k = 0, k = N/2<br>
+                    A[k] = 2 * |X[k]| / U_A, &nbsp; k = 1, ..., N/2-1
+                </code><br>
+                Amplitudové spektrum je převedeno do logaritmické míry a zabezpečeno proti nule přičtením malé konstanty:<br>
+                <code>A_dB[k] = 20 * log10(|A[k]| + 10^-12)</code>
+            </li>
+            <li>
+                <strong>Výpočet výkonového spektra (PSD):</strong> Spektrální výkonová hustota (PSD) udává výkon signálu připadající na jednotkový kmitočtový interval:<br>
+                <code>
+                    PSD(k) = |X[k]|^2 * T_s / U_PSD, &nbsp; k = 0, k = N/2<br>
+                    PSD(k) = 2 * |X[k]|^2 * T_s / U_PSD, &nbsp; k = 1, ..., N/2-1
+                </code><br>
+                Výsledek je převeden na dB:<br>
+                <code>PSD_dB[k] = 10 * log10(PSD[k] + 10^-12)</code>
+            </li>
+            <li>
+                <strong>Výpočet frekvenční osy:</strong><br>
+                <code>f[k] = k / (N * T_s), &nbsp; k = 0, 1, ..., N/2-1</code>
+            </li>
+        </ol>
+    </div>
+
+    <div class="section">
+        <h2>Frontend – Uživatelské rozhraní a třída GUI</h2>
+        <p>
+            Třída <code>GUI</code> představuje hlavní část uživatelského rozhraní programu. Je implementována v knihovně PyQt5 a zajišťuje veškerou interakci s uživatelem, vizualizaci dat, ovládání zařízení a správu konfigurace. V této sekci je popsána struktura GUI, jeho hlavní funkce a způsob ovládání programu. Kvůli úspoře místa je technický popis třídy částečně spojen s praktickou příručkou pro ovládání programu. Při tvorbě GUI bylo vycházeno zejména z oficiální Qt 5.15 dokumentace.
+        </p>
+    
+        <h3>Inicializace GUI</h3>
+        <p>
+            Při spuštění aplikace je nejprve vytvořena instance třídy <code>GUI</code>, která představuje hlavní okno programu a zajišťuje veškerou interakci s uživatelem. V konstruktoru třídy <code>GUI</code> probíhá několik klíčových kroků:
+        </p>
+        <ol>
+            <li><strong>Načtení konfiguračních souborů:</strong> Při startu se načítá konfigurační soubor aplikace (<code>app_config.json</code>), ve kterém jsou uloženy naposledy použité hodnoty nastavení, cesty k souborům, seznam proměnných pro logování a další parametry.</li>
+            <li><strong>Inicializace logování:</strong> Nastaví se logovací systém, který zapisuje události a chyby do .log souboru a do konzole.</li>
+            <li><strong>Vytvoření instance backendu:</strong> Je vytvořena instance třídy <code>Can</code>, která zajišťuje komunikaci s hardwarem. Tato instance je předána jako atribut <code>self.can</code> a je propojena s GUI pro předávání dat a příkazů. Je provedeno prvotní nastavení parametrů dle dat stažených z karty (<code>one_shot_update</code>).</li>
+            <li><strong>Inicializace grafických komponent:</strong> Vytvoří se hlavní okno, menu, rozložení sloupců, grafy, ovládací prvky a dialogy.</li>
+            <li><strong>Nastavení časovačů:</strong> Pro periodickou aktualizaci dat, grafů a spekter jsou vytvořeny tři nezávislé časovače (<code>QTimer</code>).</li>
+            <li><strong>Spuštění přijímacího vlákna:</strong> Po inicializaci GUI je spuštěno přijímací vlákno backendu (<code>self.can.start_rx_thread()</code>), které zajišťuje příjem dat z CAN sběrnice na pozadí.</li>
+        </ol>
+    
+        <h3>Běh aplikace</h3>
+        <p>
+            Po inicializaci běží hlavní smyčka aplikace v rámci GUI vlákna. Uživatelské akce (např. změna parametrů, spuštění logování, export dat) jsou zpracovávány prostřednictvím signálů a slotů PyQt5. Data z backendu jsou periodicky načítána a zobrazována v grafech a widgetech. V případě ztráty spojení s hardwarem je uživatel upozorněn a aktualizace GUI je pozastavena do obnovení spojení.
+        </p>
+        <p>
+            GUI také umožňuje otevírat další dialogová okna pro detailní nastavení parametrů, export dat nebo zobrazení tabulky SDO parametrů. Veškeré změny nastavení jsou ukládány do konfiguračního souboru, což umožňuje zachovat uživatelské preference mezi jednotlivými spuštěními aplikace.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>Použité knihovny</h2>
+        <ul>
+            <li><code>ctypes</code> – volání DLL knihovny <code>canusb32.dll</code> a práce s pointery</li>
+            <li><code>os</code>, <code>sys</code> – práce se soubory, cestami, systémem</li>
+            <li><code>csv</code> – čtení a zápis CSV souborů</li>
+            <li><code>threading</code>, <code>time</code> – vlákna a časování</li>
+            <li><code>queue.Queue</code> – předávání požadavků mezi vlákny</li>
+            <li><code>collections.deque</code> – kruhové buffery</li>
+            <li><code>struct</code> – převod mezi datovými typy a binárními daty</li>
+            <li><code>PyQt5</code> – tvorba GUI</li>
+            <li><code>qtwidgets.Toggle</code> – widget přepínače</li>
+            <li><code>numpy</code> – numerické výpočty, FFT</li>
+            <li><code>pyqtgraph</code> – grafy v reálném čase</li>
+            <li><code>math</code> – matematické operace</li>
+            <li><code>datetime</code> – časové značky</li>
+            <li><code>json</code> – ukládání/načítání konfigurací</li>
+            <li><code>logging</code> – logování událostí</li>
+            <li><code>psutil</code>, <code>subprocess</code> – spouštění a kontrola externích procesů</li>
+        </ul>
+        <p>
+            Podrobné informace o CANOpen protokolu byly čerpány z oficiální dokumentace CAN in Automation (CiA) a dalších zdrojů.
+        </p>
+    </div>
+
+    <div class="footer">
+        <p>Verze aplikace: 0.2 &nbsp; | &nbsp; Autor: Jindřich Zobač</p>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+[OBJECT1]
+ID=250
+GROUP=1
+NAME=abcd1234
+MOS_ID=384      
+ENABLED=rx
+LENGTH=8
+FREQ=500
+ENDIAN=12345678
+VALUES=4
+  VALUE01    =       INTEGER16,    00, SyncD_Re, %8d [LSB]
+  VALUE02    =       INTEGER16,    16, SyncD_Im, %8d [LSB]
+  VALUE03    =       INTEGER16,    32, AIN1    , %8d [LSB]
+  VALUE04    =       INTEGER16,    48, AIN2    , %8d [LSB]
+
+[OBJECT2]
+ID=250
+GROUP=1
+NAME=efgh5678
+MOS_ID=640      
+ENABLED=rx
+LENGTH=8
+FREQ=500
+ENDIAN=12345678
+VALUES=4
+  VALUE01    =       BOOLEAN  ,    00, SyncD_Re, %8d [LSB]
+  VALUE02    =       INTEGER8 ,    08, SyncD_Im, %8d [LSB]
+  VALUE03    =       UNSIGNED8,    16, AIN1    , %8d [LSB]
+  VALUE04    =       INTEGER32,    32, AIN2    , %8d [LSB]
+

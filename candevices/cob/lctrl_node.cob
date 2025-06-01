@@ -1,0 +1,52 @@
+[OBJECT1]
+NAME=tx1
+GROUP=1
+MOS_ID=384      
+ENABLED=tx
+LENGTH=8
+FREQ=500
+ENDIAN=12345678
+VALUES=2
+   VALUE01    =       UNSIGNED32,    00, WLI_SP_MHz, %8d [LSB]
+   VALUE02    =       UNSIGNED32,    32, Fbeat_SP_MHz, %8d [LSB]
+   
+
+
+[OBJECT2]
+NAME=tx2
+GROUP=1
+MOS_ID=640      
+ENABLED=tx
+LENGTH=8
+FREQ=500
+ENDIAN=12345678
+VALUES=1
+   VALUE01    =       UNSIGNED32,    00, WLI_GUARD_SP_MHz, %8d [LSB]
+
+
+[OBJECT3]
+NAME=tx3
+GROUP=1
+MOS_ID=896      
+ENABLED=tx
+LENGTH=8
+FREQ=500
+ENDIAN=12345678
+VALUES=11
+   VALUE01	=	UNSIGNED8, 	00, AutoLock_state, 		%8d [LSB] 	
+   VALUE02	=	BOOLEAN, 	08, beatnote_polarity, 		%8d [LSB]
+   VALUE03	=	BOOLEAN, 	09, WLI_lock, 			%8d [LSB]
+   VALUE04	=	BOOLEAN, 	10, FLL_lock, 			%8d [LSB]
+   VALUE05	=	BOOLEAN, 	11, PLL_lock, 			%8d [LSB]
+   VALUE06	=	BOOLEAN, 	12, FLL_guard, 			%8d [LSB]
+   VALUE07	=	BOOLEAN, 	13, WLI_guard, 			%8d [LSB]
+   VALUE08	=	BOOLEAN, 	14, FLL_drop_out,		%8d [LSB]
+   VALUE09	=	BOOLEAN, 	15, PLL_drop_out,		%8d [LSB]
+   VALUE10	=	BOOLEAN, 	16, Vbeat_low,			%8d [LSB]
+   VALUE11	=	BOOLEAN, 	17, Beat_wide,			%8d [LSB]
+
+
+
+
+
+

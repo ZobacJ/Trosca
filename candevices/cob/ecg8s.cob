@@ -1,0 +1,83 @@
+[OBJECT1]
+ID=250
+GROUP=1
+NAME=rx1
+MOS_ID=300      
+ENABLED=rx
+LENGTH=8
+FREQ=500
+ENDIAN=12345678
+VALUES=2
+  VALUE01    =       INTEGER32,    00,  Lead_01, %8d [LSB]
+  VALUE02    =       INTEGER32,    32,  Lead_02, %8d [LSB]
+
+[OBJECT2]
+ID=250
+GROUP=1
+NAME=rx2
+MOS_ID=301      
+ENABLED=rx
+LENGTH=8
+FREQ=500
+ENDIAN=12345678
+VALUES=3
+  VALUE01    =       INTEGER32,    00,  Lead_03, %8d [LSB]
+  VALUE02    =       INTEGER32,    32,  Lead_04, %8d [LSB]
+
+[OBJECT3]
+ID=250
+GROUP=1
+NAME=rx1
+MOS_ID=302      
+ENABLED=rx
+LENGTH=8
+FREQ=500
+ENDIAN=12345678
+VALUES=2
+  VALUE01    =       INTEGER32,    00,  Lead_05, %8d [LSB]
+  VALUE02    =       INTEGER32,    32,  Lead_06, %8d [LSB]
+
+[OBJECT4]
+ID=250
+GROUP=1
+NAME=rx2
+MOS_ID=303      
+ENABLED=rx
+LENGTH=8
+FREQ=500
+ENDIAN=12345678
+VALUES=3
+  VALUE01    =       INTEGER32,    00,  Lead_07, %8d [LSB]
+  VALUE02    =       INTEGER32,    32,  Lead_08, %8d [LSB]
+
+[OBJECT5]
+ID=250
+GROUP=1000
+NAME=SDOrx
+MOS_ID=1408      
+ENABLED=rx
+LENGTH=8
+FREQ=5
+ENDIAN=12345678
+VALUES=4
+  VALUE01    =      UNSIGNED8,     00, Command    , %8d [LSB]
+  VALUE02    =     UNSIGNED16,     08, Index      , %8d [LSB]
+  VALUE03    =      UNSIGNED8,     24, SubIndex   , %8d [LSB]
+  VALUE04    =     UNSIGNED32,     32, Data       , %8d [LSB]
+
+
+[OBJECT6]
+ID=251
+GROUP=1000
+NAME=SDOtx
+MOS_ID=1536     
+ENABLED=tx
+LENGTH=8
+FREQ=5
+ENDIAN=12345678
+VALUES=4
+  VALUE01    =      UNSIGNED8,     00, Command    , %8d [LSB]
+  VALUE02    =     UNSIGNED16,     08, Index      , %8d [LSB]
+  VALUE03    =      UNSIGNED8,     24, SubIndex   , %8d [LSB]
+  VALUE04    =     UNSIGNED32,     32, Data       , %8d [LSB]
+
